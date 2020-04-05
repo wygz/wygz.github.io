@@ -28,7 +28,7 @@
 <meta property="og:description" content="微信公众号链接 - 2020 AIME I 解题思路（11~15） pdf 下载链接 - 2020 AIME I 解题思路（1~15)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T01:20:04.000Z">
-<meta property="article:modified_time" content="2020-04-05T03:27:31.020Z">
+<meta property="article:modified_time" content="2020-04-05T03:32:36.800Z">
 <meta property="article:author" content="WYGZ">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-05 09:20:04 / Modified: 11:27:31" itemprop="dateCreated datePublished" datetime="2020-04-05T09:20:04+08:00">2020-04-05</time>
+              <time title="Created: 2020-04-05 09:20:04 / Modified: 11:32:36" itemprop="dateCreated datePublished" datetime="2020-04-05T09:20:04+08:00">2020-04-05</time>
             </span>
 
           
@@ -229,7 +229,7 @@
       
         <p><a href="https://mp.weixin.qq.com/s/G_jsncAalP-vwNob1jbjJA" target="_blank" rel="noopener">微信公众号链接 - 2020 AIME I 解题思路（11~15）</a></p>
 <p><a href="/downloads/2020 AIME I 解题思路 - 无忧公主的数学时间.pdf">pdf 下载链接 - 2020 AIME I 解题思路（1~15)</a></p>
-
+<div class="pdfobject-container" data-target="“/downloads/2020" data-height="AIME"></div>
     </div>
 
     
@@ -424,6 +424,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
