@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="题目来源：https:&#x2F;&#x2F;loj.ac&#x2F;problem&#x2F;3120 题目大意有 $n$ 个在 $[1,D]$ 范围内的随机变量，求使得相同变量能够配成至少 $m$ 对的方案数（$1\le D\le 10^5，1\le m\le n\le 10^9$）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTS 2019 珍珠">
+<meta property="og:url" content="http://wygz.github.io/2019/05/22/CTS%202019%20%E7%8F%8D%E7%8F%A0/index.html">
+<meta property="og:site_name" content="无忧公主的笔记">
+<meta property="og:description" content="题目来源：https:&#x2F;&#x2F;loj.ac&#x2F;problem&#x2F;3120 题目大意有 $n$ 个在 $[1,D]$ 范围内的随机变量，求使得相同变量能够配成至少 $m$ 对的方案数（$1\le D\le 10^5，1\le m\le n\le 10^9$）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T01:02:41.872Z">
+<meta property="article:author" content="WYGZ">
+<meta property="article:tag" content="组合计数">
+<meta property="article:tag" content="生成函数">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://wygz.github.io/2019/05/22/CTS%202019%20%E7%8F%8D%E7%8F%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CTS 2019 珍珠 | 无忧公主的笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无忧公主的笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/05/22/CTS%202019%20%E7%8F%8D%E7%8F%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WYGZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无忧公主的笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CTS 2019 珍珠
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-05-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-22T00:00:00+08:00">2019-05-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-08 09:02:41" itemprop="dateModified" datetime="2020-04-08T09:02:41+08:00">2020-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTS/" itemprop="url" rel="index"><span itemprop="name">CTS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>题目来源：<a href="https://loj.ac/problem/3120" target="_blank" rel="noopener">https://loj.ac/problem/3120</a></p>
+<h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>有 $n$ 个在 $[1,D]$ 范围内的随机变量，求使得相同变量能够配成至少 $m$ 对的方案数（$1\le D\le 10^5，1\le m\le n\le 10^9$）</p>
+<a id="more"></a>
+<h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>根据 ECNU 游族杯 2019 的抽乌龟那题，可以轻松获得 50+ 的部分分，并联想到权值出现次数为奇数的个数 $\le n-2m$</p>
+<p>根据出现次数考虑生成函数，由 $\sum\frac {x^k}{k!}$ 联想到一些前置技能：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+1+x+\frac {x^2} {2!}+\frac {x^3}{3!}+...&=e^x\\
+1-x+\frac {x^2} {2!}-\frac {x^3}{3!}+...&=e^{-x}\\
+1+\frac {x^2} {2!}+\frac {x^4} {4!}+\frac {x^6} {6!}+...&=\frac {e^x+e^{-x}} 2\\
+x+\frac {x^3} {3!}+\frac {x^5} {5!}+\frac {x^7} {7!}+...&=\frac {e^x-e^{-x}} 2
+\end{aligned}</script><p>于是出现偶数次的生成函数为 $\frac {e^x+e^{-x}} 2$，出现奇数次的生成函数为 $\frac {e^x-e^{-x}} 2$。我们所求的答案如下，其中 $[x^n]$ 表示求 $x^n$ 的系数，$y$ 表示出现奇数次的个数。显然，只有当 $x$ 刚好被选择了 $n$ 个且 $y$ 不超过 $n-2m$ 个时，需要统计如答案，接着便可以进行一系列的化简：</p>
+<script type="math/tex; mode=display">
+n!\sum_{k=0}^{n-2m}(\frac {e^x+e^{-x}} 2+y\frac {e^x-e^{-x}} 2)^D[x^n][y^k]\\
+\begin{aligned}
+&=n!\frac 1 {2^D}\sum_{k=0}^{n-2m}(e^x(1+y)+e^{-x}(1-y))^D[x^n][y^k]\\
+\end{aligned}</script><p>使用两次二项式定理，将 D 次方展开、交换求和顺序即可直接消去 $[x^n]$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&=n!\frac 1 {2^D}\sum_{k=0}^{n-2m}\sum_{i=0}^D(e^x(1+y))^i(e^{-x}(1-y))^{D-i}[x^n][y^k]\\
+&=n!\frac 1 {2^D}\sum_{k=0}^{n-2m}\sum_{i=0}^D\binom Die^{(2i-D)x}(1+y)^i(1-y)^{D-i}[x^n][y^k]\\
+&=\frac 1 {2^D}\sum_{i=0}^D\binom Di(2i-D)^n\sum_{k=0}^{n-2m}(1+y)^i(1-y)^{D-i}[y^k]\\
+\end{aligned}</script><p>当 $i$ 确定时，我们只需考虑 $S=\sum_{k=0}^{n-2m}(1+y)^i(1-y)^{D-i}[y^k]$ 的求法。当 $i=D$ 时暴力枚举 $k$ 即可，当 $i≠D$ 时可以将 $[y^k]$ 换个形式：</p>
+<script type="math/tex; mode=display">
+S=(1+y)^i(1-y)^{D-i}(1+y+y^2+...)[y^{n-2m}]</script><p>后面的 $1+y+y^2+…=\frac 1{1-y}$ 即为补足指数的部分，这样的好处在于多出可以抵消掉的 $1-y$ 与指数统一的 $y^{n-2m}\implies S=(1+y)^i(1-y)^{D-i-1}[y^{n-2m}]$</p>
+<p>$(1+y)^i$ 取指数 $j$，$(1-y)^{D-i-1}$ 取指数 $n-2m-j$，因此 $S=\sum_{j=0}^k\binom ij\binom{d-i}{k-j}$，其中便于书写设 $d=D=1,k=n-2m$</p>
+<script type="math/tex; mode=display">
+\sum_{j=0}^k\binom ij\binom{d-i}{k-j}=\sum_{j=0}^k\frac{i!}{j!(i-j)!}\cdot\frac{(d-i)!}{(k-j)!(d-k-i+j)}</script><p>此时如果将 $j$ 和 $i-j$ 看成指数，那么已经是卷积形式了——对应指数为 $i$ 的系数，而且不需要对于每个 $i$ 单独计算，直接跑一遍 NTT 即可</p>
+<p>最后别忘了 $i=D$ 需单独处理，以及前面剩下的系数 $\frac 1 {2^D}\binom Di(2i-D)^n$</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><p>终于推导完啦，现在只要把公式都敲进去就好了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">"="</span>&lt;&lt;x&lt;&lt;endl</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">	t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="string">'0'</span>&gt;ch||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">	<span class="keyword">do</span> &#123;(t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>;ch=getchar();&#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=(<span class="number">5e5</span>)+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,D,N,d,k;</span><br><span class="line">ll jc[maxn],iv[maxn],ivjc[maxn];</span><br><span class="line">ll a[maxn],b[maxn],fa[maxn],fb[maxn];</span><br><span class="line">ll rev[maxn],ans,tmp;</span><br><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x&lt;<span class="number">0</span>) x+=mod;</span><br><span class="line">	ll res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (y) &#123;</span><br><span class="line">		<span class="keyword">if</span> (y&amp;<span class="number">1</span>) res=res*x%mod;</span><br><span class="line">		x=x*x%mod; y/=<span class="number">2</span>;</span><br><span class="line">	&#125; <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> jc[x]*ivjc[y]%mod*ivjc[x-y]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	N=<span class="number">1</span>; <span class="keyword">int</span> lg=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (N&lt;n) N*=<span class="number">2</span>,lg++;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>,ii=i;j&lt;=lg;j++,ii/=<span class="number">2</span>)</span><br><span class="line">			rev[i]=rev[i]*<span class="number">2</span>+(ii%<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fft</span><span class="params">(ll *a,ll *out,<span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> ll tmp[maxn];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) tmp[rev[i]]=a[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> <span class="built_in">step</span>=<span class="number">1</span>;<span class="built_in">step</span>&lt;N;<span class="built_in">step</span>*=<span class="number">2</span>) &#123;</span><br><span class="line">		ll wn=ksm(<span class="number">3</span>,(mod<span class="number">-1</span>)/(<span class="built_in">step</span>*<span class="number">2</span>));</span><br><span class="line">		<span class="keyword">if</span> (flag==<span class="number">-1</span>) wn=ksm(wn,mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i+=<span class="built_in">step</span>*<span class="number">2</span>) &#123;</span><br><span class="line">			ll w=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> k=i;k&lt;i+<span class="built_in">step</span>;k++) &#123;</span><br><span class="line">				ll u=tmp[k],v=tmp[k+<span class="built_in">step</span>]*w%mod;</span><br><span class="line">				tmp[k]=(u+v)%mod; tmp[k+<span class="built_in">step</span>]=(u-v+mod)%mod;</span><br><span class="line">				w=w*wn%mod;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) out[i]=tmp[i];</span><br><span class="line">	<span class="keyword">if</span> (flag==<span class="number">-1</span>) &#123;</span><br><span class="line">		ll t=ksm(N,mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">			out[i]=out[i]*t%mod;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	jc[<span class="number">0</span>]=iv[<span class="number">0</span>]=ivjc[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	jc[<span class="number">1</span>]=iv[<span class="number">1</span>]=ivjc[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn/<span class="number">5</span>;i++) &#123;</span><br><span class="line">		jc[i]=jc[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">		iv[i]=(mod-mod/i)*iv[mod%i]%mod;</span><br><span class="line">		ivjc[i]=ivjc[i<span class="number">-1</span>]*iv[i]%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">read</span>(D); <span class="built_in">read</span>(n); <span class="built_in">read</span>(m); d=D<span class="number">-1</span>; k=<span class="built_in">min</span>(D,n<span class="number">-2</span>*m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=k;j++) &#123;</span><br><span class="line">		a[j]=ivjc[j]*ivjc[k-j]%mod;</span><br><span class="line">		<span class="keyword">if</span> ((k-j)&amp;<span class="number">1</span>) a[j]=mod-a[j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=d-k;j++) b[j]=ivjc[j]*ivjc[d-k-j]%mod;</span><br><span class="line">	init(d*<span class="number">2</span>);</span><br><span class="line">	fft(a,fa,<span class="number">1</span>); fft(b,fb,<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) fa[i]=fa[i]*fb[i]%mod;</span><br><span class="line">	fft(fa,a,<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=d;i++) a[i]=a[i]*jc[i]%mod*jc[d-i]%mod;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=d;i++)</span><br><span class="line">		ans=(ans+a[i]*C(D,i)%mod*ksm(<span class="number">2</span>*i-D,n)%mod)%mod;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=k;i++) tmp=(tmp+C(D,i))%mod;</span><br><span class="line">	ans=(ans+tmp*ksm(D,n)%mod)%mod;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans*ksm(ksm(<span class="number">2</span>,mod<span class="number">-2</span>),D)%mod);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>WYGZ
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://wygz.github.io/2019/05/22/CTS%202019%20%E7%8F%8D%E7%8F%A0/" title="CTS 2019 珍珠">http://wygz.github.io/2019/05/22/CTS 2019 珍珠/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/" rel="tag"># 组合计数</a>
+              <a href="/tags/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/" rel="tag"># 生成函数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/" rel="prev" title="CTS 2019 随机立方体">
+      <i class="fa fa-chevron-left"></i> CTS 2019 随机立方体
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/04/CF1332G%20No%20Monotone%20Triples/" rel="next" title="CF1332G No Monotone Triples">
+      CF1332G No Monotone Triples <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="WYGZ"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">WYGZ</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://atcoder.jp/" title="https:&#x2F;&#x2F;atcoder.jp&#x2F;" rel="noopener" target="_blank">AtCoder</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://codeforces.com/" title="https:&#x2F;&#x2F;codeforces.com&#x2F;" rel="noopener" target="_blank">Codeforces</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://m3.codeforces.com/" title="http:&#x2F;&#x2F;m3.codeforces.com&#x2F;" rel="noopener" target="_blank">CF Contest Login</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://loj.ac/" title="https:&#x2F;&#x2F;loj.ac&#x2F;" rel="noopener" target="_blank">LOJ</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://uoj.ac/" title="http:&#x2F;&#x2F;uoj.ac&#x2F;" rel="noopener" target="_blank">UOJ</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://darkbzoj.tk/" title="https:&#x2F;&#x2F;darkbzoj.tk&#x2F;" rel="noopener" target="_blank">BZOJ</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/" title="https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;" rel="noopener" target="_blank">Luogu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://csacademy.com/app/graph_editor/" title="https:&#x2F;&#x2F;csacademy.com&#x2F;app&#x2F;graph_editor&#x2F;" rel="noopener" target="_blank">Graph Editor</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WYGZ</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+
+    <span class="post-meta-divider">|</span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='' opacity='' zIndex='' count='' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Upcoming Contests4&#x2F;8(Wed)    22:35     Codeforces Round #632 (Div. 2)4&#x2F;10(Fri)        22:35    Educational Codeforces Round 85 (Rated for Div. 2)">
+  <meta name="description" content="题目来源：https:&#x2F;&#x2F;loj.ac&#x2F;problem&#x2F;3119 题目大意在一个 $n\times m\times l$ 立方体的每个格子上，随机不重复地填上 $1$ 到 $n\times m\times l$（排列） 定义一个格子是极大的，当且仅当它比所有至少有一维坐标相同的格子，数值都要大 求恰好有 $k$ 个极大格子的概率，答案取模。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent and Upcoming Contests">
-<meta property="og:url" content="http://wygz.github.io/2020/04/07/Recent-and-Upcoming-Contests/index.html">
+<meta property="og:title" content="CTS 2019 随机立方体">
+<meta property="og:url" content="http://wygz.github.io/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
-<meta property="og:description" content="Upcoming Contests4&#x2F;8(Wed)    22:35     Codeforces Round #632 (Div. 2)4&#x2F;10(Fri)        22:35    Educational Codeforces Round 85 (Rated for Div. 2)">
+<meta property="og:description" content="题目来源：https:&#x2F;&#x2F;loj.ac&#x2F;problem&#x2F;3119 题目大意在一个 $n\times m\times l$ 立方体的每个格子上，随机不重复地填上 $1$ 到 $n\times m\times l$（排列） 定义一个格子是极大的，当且仅当它比所有至少有一维坐标相同的格子，数值都要大 求恰好有 $k$ 个极大格子的概率，答案取模。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-07T01:20:04.000Z">
-<meta property="article:modified_time" content="2020-04-07T23:30:33.210Z">
+<meta property="article:published_time" content="2019-05-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T01:02:42.834Z">
 <meta property="article:author" content="WYGZ">
+<meta property="article:tag" content="组合计数">
+<meta property="article:tag" content="容斥">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wygz.github.io/2020/04/07/Recent-and-Upcoming-Contests/">
+<link rel="canonical" href="http://wygz.github.io/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>Recent and Upcoming Contests | 无忧公主的笔记</title>
+  <title>CTS 2019 随机立方体 | 无忧公主的笔记</title>
   
 
 
@@ -188,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/07/Recent-and-Upcoming-Contests/">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Recent and Upcoming Contests
+          CTS 2019 随机立方体
         </h1>
 
         <div class="post-meta">
@@ -211,15 +213,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-07 09:20:04" itemprop="dateCreated datePublished" datetime="2020-04-07T09:20:04+08:00">2020-04-07</time>
+              <time title="Created: 2019-05-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-20T00:00:00+08:00">2019-05-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-08 07:30:33" itemprop="dateModified" datetime="2020-04-08T07:30:33+08:00">2020-04-08</time>
+                <time title="Modified: 2020-04-08 09:02:42" itemprop="dateModified" datetime="2020-04-08T09:02:42+08:00">2020-04-08</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTS/" itemprop="url" rel="index"><span itemprop="name">CTS</span></a>
+                </span>
+            </span>
 
           
 
@@ -232,9 +243,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h5 id="Upcoming-Contests"><a href="#Upcoming-Contests" class="headerlink" title="Upcoming Contests"></a>Upcoming Contests</h5><p>4/8(Wed)    22:35     <a href="https://codeforces.com/contests" target="_blank" rel="noopener">Codeforces Round #632 (Div. 2)</a><br>4/10(Fri)        22:35    <a href="https://codeforces.com/contests" target="_blank" rel="noopener">Educational Codeforces Round 85 (Rated for Div. 2)</a></p>
+        <p>题目来源：<a href="https://loj.ac/problem/3119" target="_blank" rel="noopener">https://loj.ac/problem/3119</a></p>
+<h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>在一个 $n\times m\times l$ 立方体的每个格子上，随机不重复地填上 $1$ 到 $n\times m\times l$（排列）</p>
+<p>定义一个格子是极大的，当且仅当它比所有至少有一维坐标相同的格子，数值都要大</p>
+<p>求恰好有 $k$ 个极大格子的概率，答案取模。</p>
 <a id="more"></a>
-<h5 id="Recent-Contests"><a href="#Recent-Contests" class="headerlink" title="Recent Contests"></a>Recent Contests</h5><p>4/4(Sat)        20:00     <a href="https://atcoder.jp/contests/abc161" target="_blank" rel="noopener">AtCoder Beginner Contest 161</a><br>4/3(Fri)        22:35     <a href="https://codeforces.com/contest/1329" target="_blank" rel="noopener">Codeforces Round #631 (Div. 1)</a><br>4/3(Fri)        22:35     <a href="https://codeforces.com/contest/1330" target="_blank" rel="noopener">Codeforces Round #631 (Div. 2)</a></p>
+<h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>首先将恰好有 $k$ 个极大的转化成至少有 $i$ 个极大的并容斥（自行意会）</p>
+<p>以 $k=2$ 为例，假设当前两个极大格所填数为 $a_1$ 和 $a_2$，与 $a_1$ 至少一维相同的格子记为 $S_1$，与 $a_2$ 至少一维相同的格子记为 $S_2$</p>
+<p>不妨 $a_1&gt;a_2$，我们要使得 $a_1$ 是 $S_1\cup S_2$ 中的最大值，$a_2$ 是 $S_2$ 中的最大值，注意到两个事件独立，则概率（分别为 “ 集合大小分之一 ”）可以连乘</p>
+<p>推广到 $a_1&gt;a_2&gt;…&gt;a_i$ 也是完全一样的道理，因此可以直接预处理出概率的前缀积 $|S_1\cup S_2\cup …\cup S_i|=n\times m\times l-(n-i)(m-i)(l-i)$</p>
+<p>最后在统计至少有 $i$ 个极大格子的概率时，还需乘上 $\binom ik$ 表示选出真正的 $k$ 个极大格，以及从 $n$ 或 $m$ 或 $l$ 中选出 $i$ 行摆放的方案数</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">"="</span>&lt;&lt;x&lt;&lt;endl</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">	t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="string">'0'</span>&gt;ch||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">	<span class="keyword">do</span> &#123;(t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>;ch=getchar();&#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">5000010</span>;</span><br><span class="line"><span class="keyword">int</span> T;</span><br><span class="line">ll n,m,l,k,ans,N,tmp;</span><br><span class="line">ll a[maxn],b[maxn];</span><br><span class="line">ll jc[maxn],iv[maxn],ivjc[maxn];</span><br><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(ll x,ll y)</span> </span>&#123; x%=mod;</span><br><span class="line">	ll res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (y) &#123;</span><br><span class="line">		<span class="keyword">if</span> (y&amp;<span class="number">1</span>) res=res*x%mod;</span><br><span class="line">		x=x*x%mod; y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> jc[x]*ivjc[y]%mod*ivjc[x-y]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">A</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> jc[x]*ivjc[x-y]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	jc[<span class="number">0</span>]=iv[<span class="number">0</span>]=ivjc[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	jc[<span class="number">1</span>]=iv[<span class="number">1</span>]=ivjc[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++) &#123;</span><br><span class="line">		jc[i]=jc[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">		iv[i]=(mod-mod/i)*iv[mod%i]%mod;</span><br><span class="line">		ivjc[i]=ivjc[i<span class="number">-1</span>]*iv[i]%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">read</span>(T);</span><br><span class="line">	<span class="keyword">while</span> (T--) &#123;</span><br><span class="line">		<span class="built_in">read</span>(n); <span class="built_in">read</span>(m); <span class="built_in">read</span>(l); <span class="built_in">read</span>(k);</span><br><span class="line">		N=<span class="built_in">min</span>(n,<span class="built_in">min</span>(m,l)); ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++) a[i]=(n*m%mod*l%mod-(n-i)*(m-i)%mod*(l-i)%mod+mod)%mod;</span><br><span class="line">		b[<span class="number">0</span>]=<span class="number">1</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++) b[i]=b[i<span class="number">-1</span>]*a[i]%mod;</span><br><span class="line">		b[N]=ksm(b[N],mod<span class="number">-2</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=N<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--) b[i]=b[i+<span class="number">1</span>]*a[i+<span class="number">1</span>]%mod;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=k;i&lt;=N;i++) &#123;</span><br><span class="line">			tmp=C(i,k)*b[i]%mod*A(n,i)%mod*A(m,i)%mod*A(l,i)%mod;</span><br><span class="line">			<span class="keyword">if</span> (i%<span class="number">2</span>==k%<span class="number">2</span>) ans+=tmp; <span class="keyword">else</span> ans-=tmp;</span><br><span class="line">			<span class="keyword">if</span> (ans&gt;=mod) ans-=mod; <span class="keyword">if</span> (ans&lt;<span class="number">0</span>) ans+=mod;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -250,7 +269,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://wygz.github.io/2020/04/07/Recent-and-Upcoming-Contests/" title="Recent and Upcoming Contests">http://wygz.github.io/2020/04/07/Recent-and-Upcoming-Contests/</a>
+    <a href="http://wygz.github.io/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/" title="CTS 2019 随机立方体">http://wygz.github.io/2019/05/20/CTS 2019 随机立方体/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -260,6 +279,10 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/" rel="tag"># 组合计数</a>
+              <a href="/tags/%E5%AE%B9%E6%96%A5/" rel="tag"># 容斥</a>
+          </div>
 
         
 
@@ -267,10 +290,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/06/USACO%202020%20Open%20Platinum%20T1/" rel="prev" title="USACO 2020 Open Platinum T1 Sprinklers 2 - Return of the Alfalfa">
-      <i class="fa fa-chevron-left"></i> USACO 2020 Open Platinum T1 Sprinklers 2 - Return of the Alfalfa
+    <a href="/2019/05/20/CTS%202019%20%E6%B0%AA%E9%87%91%E6%89%8B%E6%B8%B8/" rel="prev" title="CTS 2019 氪金手游">
+      <i class="fa fa-chevron-left"></i> CTS 2019 氪金手游
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/05/22/CTS%202019%20%E7%8F%8D%E7%8F%A0/" rel="next" title="CTS 2019 珍珠">
+      CTS 2019 珍珠 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -329,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Upcoming-Contests"><span class="nav-number">1.</span> <span class="nav-text">Upcoming Contests</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Recent-Contests"><span class="nav-number">2.</span> <span class="nav-text">Recent Contests</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
