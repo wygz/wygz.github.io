@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目来源：https:&#x2F;&#x2F;atcoder.jp&#x2F;contests&#x2F;yahoo-procon2019-qual&#x2F;tasks&#x2F;yahoo_procon2019_qual_d">
+  <meta name="description" content="链接：http:&#x2F;&#x2F;usaco.org&#x2F;index.php?page&#x3D;viewproblem2&amp;cpid&#x3D;948 题目大意给出一棵树，你需要先确定 $n$ 个点的坐标（范围 $[1,n]$），接着有 $q$ 次询问点对，要求返回（不超过）两个平面上的长方形，不重叠地覆盖到路径上所有点（$1\leq n,q\leq 10^5$）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AtCoder Yahoo Programming Contest 2019 - D Ears">
-<meta property="og:url" content="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/index.html">
+<meta property="og:title" content="USACO 2019 Open Platinum T1 Tree Boxes">
+<meta property="og:url" content="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T1%20Tree%20Boxes/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
-<meta property="og:description" content="题目来源：https:&#x2F;&#x2F;atcoder.jp&#x2F;contests&#x2F;yahoo-procon2019-qual&#x2F;tasks&#x2F;yahoo_procon2019_qual_d">
+<meta property="og:description" content="链接：http:&#x2F;&#x2F;usaco.org&#x2F;index.php?page&#x3D;viewproblem2&amp;cpid&#x3D;948 题目大意给出一棵树，你需要先确定 $n$ 个点的坐标（范围 $[1,n]$），接着有 $q$ 次询问点对，要求返回（不超过）两个平面上的长方形，不重叠地覆盖到路径上所有点（$1\leq n,q\leq 10^5$）。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-02-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-05T05:04:06.292Z">
+<meta property="article:published_time" content="2019-04-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-09T03:43:43.123Z">
 <meta property="article:author" content="WYGZ">
-<meta property="article:tag" content="Parity">
-<meta property="article:tag" content="DP">
+<meta property="article:tag" content="交互">
+<meta property="article:tag" content="构造">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/">
+<link rel="canonical" href="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T1%20Tree%20Boxes/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>AtCoder Yahoo Programming Contest 2019 - D Ears | 无忧公主的笔记</title>
+  <title>USACO 2019 Open Platinum T1 Tree Boxes | 无忧公主的笔记</title>
   
 
 
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T1%20Tree%20Boxes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AtCoder Yahoo Programming Contest 2019 - D Ears
+          USACO 2019 Open Platinum T1 Tree Boxes
         </h1>
 
         <div class="post-meta">
@@ -220,24 +220,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
+              <time title="Created: 2019-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">2019-04-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:06" itemprop="dateModified" datetime="2020-04-05T13:04:06+08:00">2020-04-05</time>
+                <time title="Modified: 2020-04-09 11:43:43" itemprop="dateModified" datetime="2020-04-09T11:43:43+08:00">2020-04-09</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
 
           
 
@@ -250,13 +241,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d</a></p>
+        <p>链接：<a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=948" target="_blank" rel="noopener">http://usaco.org/index.php?page=viewproblem2&amp;cpid=948</a></p>
+<h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>给出一棵树，你需要先确定 $n$ 个点的坐标（范围 $[1,n]$），接着有 $q$ 次询问点对，要求返回（不超过）两个平面上的长方形，不重叠地覆盖到路径上所有点（$1\leq n,q\leq 10^5$）。</p>
 <a id="more"></a>
-<h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>归纳一下找规律的结论：不可以存在 全奇- 全偶 - 全奇 这样的形式，也就是说</p>
-<p><strong>可行的 $a_1…a_n$ 必然可以分成 5 段（允许段不存在）：全 0 - 全偶 - 全奇 - 全偶 - 全 0</strong></p>
-<p>之后的事情就好办多了，设 $dp[i][j]$ 表示使 $a_1…a_i$ 合法的最小操作数，且目前 $a_i$ 在第 $j$ 段里（将这 5 段标记为 0~4）</p>
-<p>转移时 $dp[i-1][k] \rightarrow dp[i][j] ( k \leq j)$，再加上 $a_i$ 变成第 $j$ 段所需的操作数即可</p>
-<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">    t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="string">'0'</span>&gt;ch||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123;(t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>;ch=getchar();&#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll INF=(<span class="number">9e18</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=(<span class="number">2e5</span>)+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,a[maxn];</span><br><span class="line">ll dp[maxn][<span class="number">5</span>],ans=INF;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">op</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (j==<span class="number">1</span>||j==<span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i]==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> a[i]&amp;<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j==<span class="number">2</span>) <span class="keyword">return</span> a[i]&amp;<span class="number">1</span>^<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> a[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">read</span>(a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">4</span>;j++) &#123;</span><br><span class="line">        dp[i][j]=INF;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=j;k++)</span><br><span class="line">            dp[i][j]=<span class="built_in">min</span>(dp[i][j],dp[i<span class="number">-1</span>][k]);</span><br><span class="line">        dp[i][j]+=op(i,j);</span><br><span class="line">        <span class="keyword">if</span> (i==n) ans=<span class="built_in">min</span>(ans,dp[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h6><p>这是一道交互题，下面讨论一种个人认为不复杂的构造坐标的方案，当然一定时间的手工尝试是不可避免的</p>
+<p>将 1 号点设为根并放在右上角 $(n,n)$，假设 2 是 1 的儿子，那么把 2 放在下面那行上</p>
+<p>但 2 的左边需要留地方给 2 的子树，具体来说可以发现，左边需要留的距离（横坐标）是 2 的子树大小</p>
+<p>于是 2 的坐标确定了，递归处理子树假设没有矛盾，接着来看下一个儿子 3</p>
+<p>3 一定在 2 的子树下面，左边从 2 右边算起仍留出自己子树大小的距离</p>
+<p>这样一来，如果设每个点在前序遍历中是第 $a_i$ 个，后序遍历中是第 $b_i$ 个，那么其坐标为 $(n-a_i+1,b_i)$</p>
+<p>于是对于任何询问，$y$ 到 LCA 能用一个长方形覆盖，$x$ 到 LCA 下面的儿子也能用一个不重叠的长方形覆盖</p>
+<p>当 $x$、$y$ 本身就是祖先关系时，就只需要一个长方形了——愉快地解决啦 ~</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><p>在构造的过程中，需要非常小心地确保，任何一条祖孙链都能用（唯一的）一个长方形来覆盖</p>
+<p>也就是说，任何一个点的儿子都不能在自己右上方 $\implies$ 都在左下方进行类似的构造</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"grader.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">    t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="string">'0'</span>&gt;ch||ch&gt;<span class="string">'9'</span>) &#123; ch=getchar(); <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123; (t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>; ch=getchar(); &#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n,tot,head[maxn],nxt[maxn*<span class="number">2</span>],to[maxn*<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRoad</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x++; y++;</span><br><span class="line">    tot++; nxt[tot]=head[x];</span><br><span class="line">    head[x]=tot; to[tot]=y;</span><br><span class="line">    swap(x,y);</span><br><span class="line">    tot++; nxt[tot]=head[x];</span><br><span class="line">    head[x]=tot; to[tot]=y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[maxn],b[maxn],c1,c2;</span><br><span class="line"><span class="keyword">int</span> fa[maxn][<span class="number">21</span>],dep[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    a[u]=++c1; dep[u]=dep[p]+<span class="number">1</span>;</span><br><span class="line">    fa[u][<span class="number">0</span>]=p;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=head[u],v;i;i=nxt[i]) &#123;</span><br><span class="line">        v=to[i]; <span class="keyword">if</span> (v==p) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(v,u);</span><br><span class="line">    &#125; b[u]=++c2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">buildFarms</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    n=getN();</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">20</span>;i++)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        fa[j][i]=fa[fa[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">        a[i]=n-a[i]+<span class="number">1</span>;</span><br><span class="line">        setFarmLocation(i<span class="number">-1</span>,a[i],b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">notifyFJ</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x++; y++;</span><br><span class="line">    <span class="keyword">if</span> (dep[x]&gt;dep[y]) swap(x,y);</span><br><span class="line">    <span class="keyword">int</span> X=x,Y=y;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="keyword">if</span> (dep[fa[y][i]]&gt;=dep[x]) y=fa[y][i];</span><br><span class="line">    <span class="keyword">if</span> (x==y) &#123;</span><br><span class="line">        addBox(a[Y],b[Y],a[X],b[X]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="keyword">if</span> (fa[x][i]!=fa[y][i])</span><br><span class="line">            x=fa[x][i],y=fa[y][i];</span><br><span class="line">    addBox(a[X],b[X],a[x],b[x]);</span><br><span class="line">    x=fa[x][<span class="number">0</span>];</span><br><span class="line">    addBox(a[Y],b[Y],a[x],b[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -272,7 +270,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/" title="AtCoder Yahoo Programming Contest 2019 - D Ears">http://wygz.github.io/2019/02/10/AtCoder Yahoo Programming Contest 2019 - D Ears/</a>
+    <a href="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T1%20Tree%20Boxes/" title="USACO 2019 Open Platinum T1 Tree Boxes">http://wygz.github.io/2019/04/18/USACO 2019 Open Platinum T1 Tree Boxes/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -283,8 +281,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Parity/" rel="tag"># Parity</a>
-              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/%E4%BA%A4%E4%BA%92/" rel="tag"># 交互</a>
+              <a href="/tags/%E6%9E%84%E9%80%A0/" rel="tag"># 构造</a>
           </div>
 
         
@@ -293,12 +291,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/" rel="prev" title="AtCoder Yahoo Programming Contest 2019 - E Odd Subrectangles">
-      <i class="fa fa-chevron-left"></i> AtCoder Yahoo Programming Contest 2019 - E Odd Subrectangles
+    <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/" rel="prev" title="AtCoder Yahoo Programming Contest 2019 - D Ears">
+      <i class="fa fa-chevron-left"></i> AtCoder Yahoo Programming Contest 2019 - D Ears
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/04/18/USACO%202019%20Open%20Platinum%20T1%20Tree%20Boxes/" rel="next" title="USACO 2019 Open Platinum T1 Tree Boxes">
-      USACO 2019 Open Platinum T1 Tree Boxes <i class="fa fa-chevron-right"></i>
+    <a href="/2019/05/20/CTS%202019%20%E9%9A%8F%E6%9C%BA%E7%AB%8B%E6%96%B9%E4%BD%93/" rel="next" title="CTS 2019 随机立方体">
+      CTS 2019 随机立方体 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -358,7 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

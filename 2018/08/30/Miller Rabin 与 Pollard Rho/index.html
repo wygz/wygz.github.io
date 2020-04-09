@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollar Rho，这时 Miller Rabin 也会派上用场呢。">
+  <meta name="description" content="分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollard Rho，这时 Miller Rabin 也会派上用场呢。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Miller Rabin 与 Pollard Rho——大整数分解质因数">
 <meta property="og:url" content="http://wygz.github.io/2018/08/30/Miller%20Rabin%20%E4%B8%8E%20Pollard%20Rho/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
-<meta property="og:description" content="分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollar Rho，这时 Miller Rabin 也会派上用场呢。">
+<meta property="og:description" content="分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollard Rho，这时 Miller Rabin 也会派上用场呢。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-08-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-07T01:14:19.870Z">
+<meta property="article:modified_time" content="2020-04-09T03:43:41.853Z">
 <meta property="article:author" content="WYGZ">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-07 09:14:19" itemprop="dateModified" datetime="2020-04-07T09:14:19+08:00">2020-04-07</time>
+                <time title="Modified: 2020-04-09 11:43:41" itemprop="dateModified" datetime="2020-04-09T11:43:41+08:00">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,9 +250,10 @@
 
       
         <blockquote>
-<p>分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollar Rho，这时 Miller Rabin 也会派上用场呢。</p>
+<p>分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollard Rho，这时 Miller Rabin 也会派上用场呢。</p>
 </blockquote>
 <a id="more"></a>
+<p>update：推荐写得比较清楚的 <a href="https://blog.csdn.net/qq_39972971/article/details/82346390" target="_blank" rel="noopener">https://blog.csdn.net/qq_39972971/article/details/82346390</a></p>
 <h5 id="生日悖论"><a href="#生日悖论" class="headerlink" title="生日悖论"></a>生日悖论</h5><p>Miller Rabin 和 Pollard Rho 本质上都是随机算法，你有没有想过随机出任何一个质因数呢？你可能会说，当 $N=p1*p2$ 的时候，很难随机到呀！但是，随机选 23 个人，他们中有两人生日相同的概率是超过 50% 的——这里，生日悖论是个很好的例子。它的证明很好理解，假设第 1 个人已经选好了，那么第 2 个人生日与他不相同的概率为 $1-\frac 1 {365}$，第 3 个人与他们都不相同的概率为 $1-\frac 2 {365}$……以此类推。这样相乘起来，即可得出的结论是（这里就不给出严谨过程了，因为并不是重点…）：如果一年有 $N$ 天，那么只要 $n\geq\sqrt{N}$，随机选 $n$ 个人中有生日相同的概率超过 50%。</p>
 <p>于是拓展到原来的问题，我们知道当 $n=\sqrt{N}$ 时，概率会达到 50%。直接随机 $\sqrt{N}$ 个数的代价是不可取的，但如果两两作差就有意思了，因为理论上来说只需要随机 $N^{1/4}$ 个数。此时的问题在于概率还不够大，并仍然需要枚举他们的差、再做除法，以找到一个质因数。进一步思考，取 $gcd(|a-b|,N)$ 时是非常优秀的，原因在于虽然 $p1$ 和 $p2$ 很难找，但 $p1$ 和 $p2$ 的倍数比比皆是，所以满足$1&lt;gcd&lt;N$ 时便找到一个因数啦。</p>
 <h5 id="实现方法及细节"><a href="#实现方法及细节" class="headerlink" title="实现方法及细节"></a>实现方法及细节</h5><p>等一下，我们还是要存储 $N^{1/4}$ 个数吗？Pollard 告诉我们，只需要判断两个数哦。具体来说，我们先随机出 $x_1$，然后构造出一个很好的伪随机函数 $f(x)=(x^2+c)$ mod $N$ 来生成出下一项，也就是 $x_{n+1}=f(x_n)$。你会发现这样能通过大部分的数据，但也有可能陷入死循环，而永远找不到 $1&lt;gcd&lt;N$ 的情况（这时便找不到因数，需要换个 $c$ 再做一遍）。</p>
@@ -377,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
