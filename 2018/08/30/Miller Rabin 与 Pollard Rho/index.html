@@ -28,7 +28,7 @@
 <meta property="og:description" content="分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollard Rho，这时 Miller Rabin 也会派上用场呢。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-08-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T03:43:41.853Z">
+<meta property="article:modified_time" content="2020-04-11T03:47:03.993Z">
 <meta property="article:author" content="WYGZ">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 11:43:41" itemprop="dateModified" datetime="2020-04-09T11:43:41+08:00">2020-04-09</time>
+                <time title="Modified: 2020-04-11 11:47:03" itemprop="dateModified" datetime="2020-04-11T11:47:03+08:00">2020-04-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
 <h5 id="实现方法及细节"><a href="#实现方法及细节" class="headerlink" title="实现方法及细节"></a>实现方法及细节</h5><p>等一下，我们还是要存储 $N^{1/4}$ 个数吗？Pollard 告诉我们，只需要判断两个数哦。具体来说，我们先随机出 $x_1$，然后构造出一个很好的伪随机函数 $f(x)=(x^2+c)$ mod $N$ 来生成出下一项，也就是 $x_{n+1}=f(x_n)$。你会发现这样能通过大部分的数据，但也有可能陷入死循环，而永远找不到 $1&lt;gcd&lt;N$ 的情况（这时便找不到因数，需要换个 $c$ 再做一遍）。</p>
 <p>$*$ 并不是所有伪随机函数都适用</p>
 <p>用 $vis$ 记录是显然存不下的，于是 Floyd 发明了一个判环的方法。假设 $a$ 和 $b$ 同时从起点出发开始跑 $f(x)$，$b$ 比 $a$ 要快一倍，如果有环则很快会追上。按照这样的思路，从代码实现角度来说，$b$ 可以记录上一个 $2^k$ 的 $x$ 值，与 $a$ 进行比较、作差取 $gcd$，出现环时也能迅速判断到。</p>
-<p>剩下需要做的就是维护好递归，每次先顺利找到一个因数 $p$，再分别对 $p$ 和 $N/p$ 进行类似的分解操作。当 $p$ 是质数时，就不需要继续了——这至关重要，否则很难判断。于是  Miller Rabin 就登场啦，我想细致地讲一遍实现方法。首先假设 $p-1=2^k<em>t$ 且 $t$ 是奇数（把 2 都除掉），那么快速幂求得 $a^t$mod $p$ 后就可以自乘依次获得 $a^{2t}$、$a^{4t}$……$a^{2^k</em>t}$ 也就是 $a^{p-1}$。在这个过程当中，如果出现前 1 项不是 ±1 而后一项是 1，或者 $a^{p-1}$ mod $p$ 不是 1，则 $p$ 不是质数。这里的 $a$ 我取的是 2~23 的质数，当然 $p$ 要先判下是不是 $a$ 的倍数。</p>
+<p>剩下需要做的就是维护好递归，每次先顺利找到一个因数 $p$，再分别对 $p$ 和 $N/p$ 进行类似的分解操作。当 $p$ 是质数时，就不需要继续了——这至关重要，否则很难判断。于是  Miller Rabin 就登场啦，我想细致地讲一遍实现方法。首先假设 $p-1=2^k \times t$ 且 $t$ 是奇数（把 2 都除掉），那么快速幂求得 $a^t$mod $p$ 后就可以自乘依次获得 $a^{2t}$、$a^{4t}$……$a^{2^k \times t}$ 也就是 $a^{p-1}$。在这个过程当中，如果出现前 1 项不是 ±1 而后一项是 1，或者 $a^{p-1}$ mod $p$ 不是 1，则 $p$ 不是质数。这里的 $a$ 我取的是 2~23 的质数，当然 $p$ 要先判下是不是 $a$ 的倍数。</p>
 <p>$*$ 如果 $p$ 是质数，那么 $a^2\equiv 1$ 等价于 $a\equiv ±1$。</p>
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>总的来说，这个做法在 $N$ 的因数很多且都不大时尤其高效，但因为是随机的所以看起来比较 “ 玄学 ”，下面我想严谨证明一下期望复杂度。假设 $p1\leq p2$ 且 $y_i=x_i$ mod $p1$，根据生日悖论，$x_i$ 进入循环的期望步数是 $\sqrt{N}$ 而 $y_i$ 是 $\sqrt{p1}$。所以在 $y_i$ 进入循环后，$x_i$ 很可能还没有，此时 $x_i-x_j=(k1\cdot p1+y_i)-(k2\cdot p1+y_j)=(k_i-k_j)\cdot p1$ 因为 $y_i=y_j$。此时已经通过 $x_i-x_j$ 的 $gcd$ 已经找出了 $p1$ 这个因数，又因为 $p1\leq\sqrt{N}$，所以 $y_i$ 进入循环的期望步数是 $O(N^{1/4})$——如果复杂度不计常数的话。</p>
 <p>其实最初 Pollard 在 1975 年发表了这个算法，之后再在 1980 年由 Richard Brent 提出了改进。关于 Pollard Rho 算法这个名字，其实非常有意思：进入一个 Floyd 循环的过程，是不是长的很像 $ρ$ 呢？</p>
@@ -378,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -391,7 +391,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
