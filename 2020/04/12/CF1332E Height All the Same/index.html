@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="微信公众号链接 - 2020 AIME I 解题思路（11~15） pdf 下载链接 - 2020 AIME I 解题思路（1~15)">
+  <meta name="description" content="链接：https:&#x2F;&#x2F;codeforces.com&#x2F;contest&#x2F;1332&#x2F;problem&#x2F;E 题目大意一个 $n\times m$ 的矩阵 $a_{i,j}$，每次可以选择一个格子$+2$，或两个相邻格子同时$+1$。现在要求通过有限次操作能使所有 $a_{i,j}$ 都相等，在 $L\le a_{i,j}\le R$ 的限制下，求这样的矩阵个数，对 998244353 取模。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2020 AIME I 解题思路（11~15）">
-<meta property="og:url" content="http://wygz.github.io/2020/04/05/2020%20AIME%20I%20%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%8811~15%EF%BC%89/index.html">
+<meta property="og:title" content="CF1332E Height All the Same">
+<meta property="og:url" content="http://wygz.github.io/2020/04/12/CF1332E%20Height%20All%20the%20Same/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
-<meta property="og:description" content="微信公众号链接 - 2020 AIME I 解题思路（11~15） pdf 下载链接 - 2020 AIME I 解题思路（1~15)">
+<meta property="og:description" content="链接：https:&#x2F;&#x2F;codeforces.com&#x2F;contest&#x2F;1332&#x2F;problem&#x2F;E 题目大意一个 $n\times m$ 的矩阵 $a_{i,j}$，每次可以选择一个格子$+2$，或两个相邻格子同时$+1$。现在要求通过有限次操作能使所有 $a_{i,j}$ 都相等，在 $L\le a_{i,j}\le R$ 的限制下，求这样的矩阵个数，对 998244353 取模。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-05T01:20:04.000Z">
-<meta property="article:modified_time" content="2020-04-07T15:35:04.218Z">
+<meta property="article:published_time" content="2020-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-12T10:32:50.414Z">
 <meta property="article:author" content="WYGZ">
-<meta property="article:tag" content="数学">
+<meta property="article:tag" content="组合计数">
+<meta property="article:tag" content="奇偶性">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wygz.github.io/2020/04/05/2020%20AIME%20I%20%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%8811~15%EF%BC%89/">
+<link rel="canonical" href="http://wygz.github.io/2020/04/12/CF1332E%20Height%20All%20the%20Same/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>2020 AIME I 解题思路（11~15） | 无忧公主的笔记</title>
+  <title>CF1332E Height All the Same | 无忧公主的笔记</title>
   
 
 
@@ -195,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/05/2020%20AIME%20I%20%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%8811~15%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/12/CF1332E%20Height%20All%20the%20Same/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2020 AIME I 解题思路（11~15）
+          CF1332E Height All the Same
         </h1>
 
         <div class="post-meta">
@@ -218,16 +219,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-04-05 09:20:04" itemprop="dateCreated datePublished" datetime="2020-04-05T09:20:04+08:00">2020-04-05</time>
+              <time title="Created: 2020-04-12 00:00:00 / Modified: 18:32:50" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-07 23:35:04" itemprop="dateModified" datetime="2020-04-07T23:35:04+08:00">2020-04-07</time>
-              </span>
 
           
 
@@ -240,19 +235,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://mp.weixin.qq.com/s/G_jsncAalP-vwNob1jbjJA" target="_blank" rel="noopener">微信公众号链接 - 2020 AIME I 解题思路（11~15）</a></p>
-<p><a href="/downloads/2020 AIME I 解题思路 - 无忧公主的数学时间.pdf">pdf 下载链接 - 2020 AIME I 解题思路（1~15)</a></p>
+        <p>链接：<a href="https://codeforces.com/contest/1332/problem/E" target="_blank" rel="noopener">https://codeforces.com/contest/1332/problem/E</a></p>
+<h5 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h5><p>一个 $n\times m$ 的矩阵 $a_{i,j}$，每次可以选择一个格子$+2$，或两个相邻格子同时$+1$。现在要求通过有限次操作能使所有 $a_{i,j}$ 都相等，在 $L\le a_{i,j}\le R$ 的限制下，求这样的矩阵个数，对 998244353 取模。</p>
 <a id="more"></a>
-<iframe  
- height=850 
- width=90% 
- src="/downloads/2020 AIME I 解题思路 - 无忧公主的数学时间.pdf"  
- frameborder=0  
- allowfullscreen>
- </iframe>
-
-
-
+<p>范围：$1\le n,m,L,R\le 10^9，L\le R，n\times m \ge 2$</p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>第一个观察是和奇偶性有关，因为我们只要让所有$a_{i,j}$都是奇数或偶数就好了。而将$2$个相邻格子同时$+1$，意味着可以同时修改任$2$个格子的奇偶性，只要沿着路径翻转即可。因此，记 $x$ 为 $[L,R]$ 的偶数个数，$y$ 为 $[L,R]$ 的奇数个数。</p>
+<p>第二个观察是和 $n,m$ 无关，和 $N=n\times m$ 有关。<strong>当 $N$ 为奇数时</strong>，矩阵中偶数的个数为偶，或奇数的个数为偶。相应地，把所有偶数配对改成奇数，或把所有奇数配对改成偶数。这样所有数奇偶性全相同了，任何初始矩阵皆可。注意：此时不能用总和做，因为总和的奇偶性取决于最终全局的奇偶性，可以调整。</p>
+<p><strong>当 $N$ 为偶数时</strong>，奇数可能有偶数个，也可能有奇数个。若有<strong>偶数个奇数</strong>，同上可以；若有奇数个奇数，总和始终为奇，显然不行。强制奇数的个数为偶，再套二项式定理即可。</p>
+<script type="math/tex; mode=display">
+ANS=\sum_{i=0,2\mid (N-i)}^N \binom Nix^iy^{N-i}\\
+(x+y)^N=\sum_{i=0}^N\binom Ni x^i y^{N-i}\\
+(x-y)^N=\sum_{i=0,2\mid (N-i)}^N\binom Ni x^i y^{N-i}-\sum_{i=0,2\nmid(N-i)}^N\binom Nix^iy^{N-i}\\
+\Rightarrow ANS=\frac 12((x+y)^N+(x-y)^N)</script><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>直接输出答案的 E 题——有点不爽</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">    t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123; (t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>; ch=getchar(); &#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span>) x+=mod;</span><br><span class="line">    <span class="keyword">if</span> (x&gt;=mod) x-=mod;</span><br><span class="line">    ll res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y&amp;<span class="number">1</span>) res=res*x%mod;</span><br><span class="line">        x=x*x%mod; y&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">ll n,m,N,L,R,ans,x,y;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n); <span class="built_in">read</span>(m); <span class="built_in">read</span>(L); <span class="built_in">read</span>(R); N=n*m;</span><br><span class="line">    x=R/<span class="number">2</span>-(L<span class="number">-1</span>)/<span class="number">2</span>; y=R-L+<span class="number">1</span>-x;</span><br><span class="line">    <span class="keyword">if</span> (N%<span class="number">2</span>==<span class="number">1</span>) ans=ksm(x+y,N);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        ans=ksm(x+y,N)+ksm(x-y,N);</span><br><span class="line">        ans%=mod;</span><br><span class="line">        <span class="keyword">if</span> (N%<span class="number">2</span>==<span class="number">0</span>) ans=ans*ksm(<span class="number">2</span>,mod<span class="number">-2</span>)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -268,7 +263,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://wygz.github.io/2020/04/05/2020%20AIME%20I%20%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%8811~15%EF%BC%89/" title="2020 AIME I 解题思路（11~15）">http://wygz.github.io/2020/04/05/2020 AIME I 解题思路（11~15）/</a>
+    <a href="http://wygz.github.io/2020/04/12/CF1332E%20Height%20All%20the%20Same/" title="CF1332E Height All the Same">http://wygz.github.io/2020/04/12/CF1332E Height All the Same/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -279,7 +274,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+              <a href="/tags/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/" rel="tag"># 组合计数</a>
+              <a href="/tags/%E5%A5%87%E5%81%B6%E6%80%A7/" rel="tag"># 奇偶性</a>
           </div>
 
         
@@ -288,13 +284,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/04/CF1332G%20No%20Monotone%20Triples/" rel="prev" title="CF1332G No Monotone Triples">
-      <i class="fa fa-chevron-left"></i> CF1332G No Monotone Triples
+    <a href="/2020/04/09/%E5%9B%9E%E6%96%87%E6%A0%91%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8-%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="prev" title="回文树及其应用 - 论文学习">
+      <i class="fa fa-chevron-left"></i> 回文树及其应用 - 论文学习
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/06/USACO%202020%20Open%20Platinum%20T3/" rel="next" title="USACO 2020 Open Platinum T3 Circus">
-      USACO 2020 Open Platinum T3 Circus <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -353,6 +346,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#题目大意"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
