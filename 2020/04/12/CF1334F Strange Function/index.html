@@ -28,7 +28,7 @@
 <meta property="og:description" content="链接：https:&#x2F;&#x2F;codeforces.com&#x2F;contest&#x2F;1334&#x2F;problem&#x2F;F 题目大意$a$ 是个长度为 $n$ 的序列，定义返回值也为序列的函数 $f(a)$：将 $i$ 从 $1$ 循环到 $n$，如果  $a_i&gt;\max_{1\le j&lt;i} a_j$，则把 $a_i$ 插入到 $f(a)$ 末尾。例如：当 $a&#x3D;[1,3,1,2,6,8,7,7,4,11,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-12T11:55:24.519Z">
+<meta property="article:modified_time" content="2020-04-12T12:06:08.331Z">
 <meta property="article:author" content="WYGZ">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="线段树">
@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-12 00:00:00 / Modified: 19:55:24" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+              <time title="Created: 2020-04-12 00:00:00 / Modified: 20:06:08" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
             </span>
 
           
@@ -237,6 +237,7 @@
       
         <p>链接：<a href="https://codeforces.com/contest/1334/problem/F" target="_blank" rel="noopener">https://codeforces.com/contest/1334/problem/F</a></p>
 <h5 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h5><p>$a$ 是个长度为 $n$ 的序列，定义返回值也为序列的函数 $f(a)$：将 $i$ 从 $1$ 循环到 $n$，如果  $a_i&gt;\max_{1\le j&lt;i} a_j$，则把 $a_i$ 插入到 $f(a)$ 末尾。例如：当 $a=[1,3,1,2,6,8,7,7,4,11,10]$ 时，$f(a)=[1,3,6,8,11]$。</p>
+<a id="more"></a>
 <p>现在，给定两个序列 $\{a_n\}$ 和 $\{b_m\}$，以及对于 $\forall 1\le i \le n$ 删除 $a_i$ 所需代价 $c_i$，求使得 $f(a)=b$ 的最小代价和。若无解输出 NO，注意代价可以为负。</p>
 <p>范围：$1\le m \le n\le 5\cdot 10^5，1\le a_i,b_i\le n，|c_i|\le 10^9，b_i&lt;b_{i+1}$</p>
 <h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>First Observation：无解很好判；$f(a)$ 说白了和单调栈长得差不多；可以 $\mathcal O(n^2)$ 的二维 DP。</p>
