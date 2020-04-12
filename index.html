@@ -334,6 +334,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/12/CF1334F%20Strange%20Function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WYGZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无忧公主的笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/CF1334F%20Strange%20Function/" class="post-title-link" itemprop="url">CF1334F Strange Function</a>
+        </h2>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-12 00:00:00 / Modified: 19:55:24" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>链接：<a href="https://codeforces.com/contest/1334/problem/F" target="_blank" rel="noopener">https://codeforces.com/contest/1334/problem/F</a></p>
+<h5 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h5><p>$a$ 是个长度为 $n$ 的序列，定义返回值也为序列的函数 $f(a)$：将 $i$ 从 $1$ 循环到 $n$，如果  $a_i&gt;\max_{1\le j&lt;i} a_j$，则把 $a_i$ 插入到 $f(a)$ 末尾。例如：当 $a=[1,3,1,2,6,8,7,7,4,11,10]$ 时，$f(a)=[1,3,6,8,11]$。</p>
+<p>现在，给定两个序列 $\{a_n\}$ 和 $\{b_m\}$，以及对于 $\forall 1\le i \le n$ 删除 $a_i$ 所需代价 $c_i$，求使得 $f(a)=b$ 的最小代价和。若无解输出 NO，注意代价可以为负。</p>
+<p>范围：$1\le m \le n\le 5\cdot 10^5，1\le a_i,b_i\le n，|c_i|\le 10^9，b_i&lt;b_{i+1}$</p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>First Observation：无解很好判；$f(a)$ 说白了和单调栈长得差不多；可以 $\mathcal O(n^2)$ 的二维 DP。</p>
+<p>Second Observation：只有在 $b$ 中出现过的 $a_i$ 才有用，可设 $dp[i]$ 表示仅考虑 $a_1…a_i$， $f(a)$ 以 $a_i$ 结尾的最小代价。DP 顺序是根据 $a_i$ 从小到大，即从 $b_1$ 到 $b_m$，具体实现额外定义 $b_0$ 和 $b_{m+1}$ 分别位于 $a_0$ 和 $a_{n+1}$。</p>
+<p>转移：$dp[j]+s[i-1]-s[j]\Rightarrow dp[i]$，这里 $s[i]$ 表示前 $i$ 个数中钦定要删除的代价 + $c_i$ 为负“留下更优”的前缀和。钦定要删除的：$a_k&gt;a_i$ 的 $c_k$，注意严格大小关系，所以 $s_i$ 可以随便维护。</p>
+<p>记 $pos(x)$ 表示 $b_{pos(x)}=x$，那么还要求 $pos(a_j)+1=pos(a_i)$，从而 $pos(a_j)$ 为定值，可以暴力找出来（而不用数据结构）。扫描线+维护$dp[j]-s[j]$最小值。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>你问我为什么用线段树？别问，问就是忘了可以树状数组。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">    t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123; (t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>; ch=getchar(); &#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll INF=(<span class="number">1e16</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=(<span class="number">5e5</span>)+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,a[maxn],m,b[maxn],c[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; h[maxn];</span><br><span class="line">ll dp[maxn],d[maxn],tmp;</span><br><span class="line"><span class="keyword">int</span> st[maxn],tot;</span><br><span class="line"><span class="keyword">bool</span> mk[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SegTree</span> &#123;</span></span><br><span class="line">    ll tr[maxn*<span class="number">4</span>],lazy[maxn*<span class="number">4</span>];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!lazy[root]) <span class="keyword">return</span>;</span><br><span class="line">        tr[root*<span class="number">2</span>]+=lazy[root];</span><br><span class="line">        tr[root*<span class="number">2</span>+<span class="number">1</span>]+=lazy[root];</span><br><span class="line">        lazy[root*<span class="number">2</span>]+=lazy[root];</span><br><span class="line">        lazy[root*<span class="number">2</span>+<span class="number">1</span>]+=lazy[root];</span><br><span class="line">        lazy[root]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root,ll delta)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (L&lt;=l&amp;&amp;r&lt;=R) &#123;</span><br><span class="line">            tr[root]+=delta;</span><br><span class="line">            lazy[root]+=delta;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        pushdown(root);</span><br><span class="line">        <span class="keyword">if</span> (L&lt;=mid) add(L,R,l,mid,root*<span class="number">2</span>,delta);</span><br><span class="line">        <span class="keyword">if</span> (mid&lt;R) add(L,R,mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,delta);</span><br><span class="line">        tr[root]=<span class="built_in">max</span>(tr[root*<span class="number">2</span>],tr[root*<span class="number">2</span>+<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!x) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (x&gt;n) x=n;</span><br><span class="line">        <span class="keyword">if</span> (l==r) <span class="keyword">return</span> tr[root];</span><br><span class="line">        <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        pushdown(root);</span><br><span class="line">        <span class="keyword">if</span> (x&lt;=mid) <span class="keyword">return</span> query(x,l,mid,root*<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">return</span> query(x,mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; T1;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">read</span>(a[i]),h[a[i]].push_back(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">read</span>(c[i]);</span><br><span class="line">    <span class="built_in">read</span>(m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) <span class="built_in">read</span>(b[i]);</span><br><span class="line">    <span class="keyword">int</span> x,pos;</span><br><span class="line">    ll mn;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">        x=lower_bound(b+<span class="number">1</span>,b+m+<span class="number">1</span>,a[i])-b;</span><br><span class="line">        <span class="keyword">if</span> (b[x]==a[i]) g[x].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        T1.add(i,n,<span class="number">1</span>,n,<span class="number">1</span>,c[i]);</span><br><span class="line">    g[<span class="number">0</span>].push_back(<span class="number">0</span>);</span><br><span class="line">    g[m+<span class="number">1</span>].push_back(n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n+<span class="number">1</span>;i++) dp[i]=INF;</span><br><span class="line">    <span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m+<span class="number">1</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=p+<span class="number">1</span>;k&lt;=b[i<span class="number">-1</span>];k++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;h[k].<span class="built_in">size</span>();j++) &#123;</span><br><span class="line">            x=h[k][j];</span><br><span class="line">            <span class="keyword">if</span> (!x) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (c[x]&gt;<span class="number">0</span>) T1.add(x,n,<span class="number">1</span>,n,<span class="number">1</span>,-c[x]);</span><br><span class="line">            <span class="keyword">else</span> mk[x]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        p=b[i<span class="number">-1</span>];</span><br><span class="line">        tot=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;g[i<span class="number">-1</span>].<span class="built_in">size</span>();j++) &#123;</span><br><span class="line">            x=g[i<span class="number">-1</span>][j];</span><br><span class="line">            <span class="keyword">if</span> (dp[x]==INF) <span class="keyword">continue</span>;</span><br><span class="line">            st[++tot]=x;</span><br><span class="line">            d[tot]=dp[x]-T1.query(x,<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        pos=<span class="number">0</span>;</span><br><span class="line">        mn=INF;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;g[i].<span class="built_in">size</span>();j++) &#123;</span><br><span class="line">            x=g[i][j];</span><br><span class="line">            <span class="keyword">while</span> (pos&lt;tot&amp;&amp;st[pos+<span class="number">1</span>]&lt;=x) &#123;</span><br><span class="line">                mn=<span class="built_in">min</span>(mn,d[pos+<span class="number">1</span>]),pos++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mn!=INF) &#123;</span><br><span class="line">                tmp=mn-c[x];</span><br><span class="line">                dp[x]=<span class="built_in">min</span>(dp[x],tmp+T1.query(x,<span class="number">1</span>,n,<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mn=dp[n+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (mn==INF) <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"YES\n%lld\n"</span>,mn);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/12/CF1334G%20Substring%20Search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WYGZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无忧公主的笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/CF1334G%20Substring%20Search/" class="post-title-link" itemprop="url">CF1334G Substring Search</a>
+        </h2>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-12 00:00:00 / Modified: 19:57:17" itemprop="dateCreated datePublished" datetime="2020-04-12T00:00:00+08:00">2020-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>链接：<a href="https://codeforces.com/contest/1334/problem/G" target="_blank" rel="noopener">https://codeforces.com/contest/1334/problem/G</a></p>
+<h5 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h5><p>给定下标为全体小写字母的排列 $p$，字符串 $s$ 和 $t$。定义 $t$ 的子串 $t’$ 和 $s$ 相同，当且仅当 $|s|=|t’|$，且对 $\forall 1\le i\le |s|$ 满足至少一条：</p>
+<ul>
+<li>$s_i=t’_i$</li>
+<li>$p_{s_i}=t_i’$</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/12/CF1334G%20Substring%20Search/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2020/04/09/%E5%9B%9E%E6%96%87%E6%A0%91%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8-%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,170 +1722,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/" class="post-title-link" itemprop="url">AtCoder Yahoo Programming Contest 2019 - D Ears</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:06" itemprop="dateModified" datetime="2020-04-05T13:04:06+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/" class="post-title-link" itemprop="url">AtCoder Yahoo Programming Contest 2019 - E Odd Subrectangles</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:18" itemprop="dateModified" datetime="2020-04-05T13:04:18+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_e" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_e</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1816,7 +1793,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
