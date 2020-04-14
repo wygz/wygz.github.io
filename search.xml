@@ -675,7 +675,7 @@ ANS=\sum_{i=0,2\mid (N-i)}^N \binom Nix^iy^{N-i} \\
   </entry>
   <entry>
     <title>HNOI 2019 D2T1 校园旅行</title>
-    <url>/2020/04/30/HNOI%202019%20D2T1%20%E6%A0%A1%E5%9B%AD%E6%97%85%E8%A1%8C/</url>
+    <url>/2019/04/30/HNOI%202019%20D2T1%20%E6%A0%A1%E5%9B%AD%E6%97%85%E8%A1%8C/</url>
     <content><![CDATA[<p>题目来源：<a href="https://loj.ac/problem/3057" target="_blank" rel="noopener">https://loj.ac/problem/3057</a></p>
 <h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>在一张点权为 01 的无向图上，$q$ 次询问从 $x$ 到 $y$ 是否存在一条点权构成回文串的路径（允许有环）$n\leq 5000，m\leq 5\cdot 10^5，q\leq 10^5$</p>
 <a id="more"></a>
