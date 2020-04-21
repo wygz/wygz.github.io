@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="无忧公主的笔记">
-<meta property="og:url" content="http://wygz.github.io/page/2/index.html">
+  <meta name="description" content="题目来源：https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;problem.php?id&#x3D;2957 解题思路我们可以稍微转化一下问题，过 $(0,0)$ 和 $(i,Hi)$ 的直线斜率必须大于所有前面的斜率时，才可以看见第 $i$ 条线段。 于是相当于求有多少个数大于前面所有的数，这里用线段树维护区间的答案和斜率 max 值。 pushup 时 mx 不难，ans 更新为 ls">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ 2957 楼房重建">
+<meta property="og:url" content="http://wygz.github.io/2019/02/16/BZOJ%202957%20%E6%A5%BC%E6%88%BF%E9%87%8D%E5%BB%BA/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
+<meta property="og:description" content="题目来源：https:&#x2F;&#x2F;www.lydsy.com&#x2F;JudgeOnline&#x2F;problem.php?id&#x3D;2957 解题思路我们可以稍微转化一下问题，过 $(0,0)$ 和 $(i,Hi)$ 的直线斜率必须大于所有前面的斜率时，才可以看见第 $i$ 条线段。 于是相当于求有多少个数大于前面所有的数，这里用线段树维护区间的答案和斜率 max 值。 pushup 时 mx 不难，ans 更新为 ls">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-21T08:46:08.309Z">
 <meta property="article:author" content="WYGZ">
+<meta property="article:tag" content="线段树">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wygz.github.io/page/2/">
+<link rel="canonical" href="http://wygz.github.io/2019/02/16/BZOJ%202957%20%E6%A5%BC%E6%88%BF%E9%87%8D%E5%BB%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>无忧公主的笔记</title>
+  <title>BZOJ 2957 楼房重建 | 无忧公主的笔记</title>
   
 
 
@@ -183,158 +188,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T2%20Compound%20Escape/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/18/USACO%202019%20Open%20Platinum%20T2%20Compound%20Escape/" class="post-title-link" itemprop="url">USACO 2019 Open Platinum T2 Compound Escape</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">2019-04-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-10 08:31:51" itemprop="dateModified" datetime="2020-04-10T08:31:51+08:00">2020-04-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>链接：<a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=949" target="_blank" rel="noopener">http://usaco.org/index.php?page=viewproblem2&amp;cpid=949</a></p>
-<h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>对于一张带边权的 $n\times m$ 网格图，求对偶图的最小生成树个数（将方格看成点）</p>
-<p>$1\leq n \leq 30000，1\leq m \leq 6$</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/18/USACO%202019%20Open%20Platinum%20T2%20Compound%20Escape/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/04/18/USACO%202019%20Open%20Platinum%20T3%20Valleys/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/18/USACO%202019%20Open%20Platinum%20T3%20Valleys/" class="post-title-link" itemprop="url">USACO 2019 Open Platinum T3 Valleys</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">2019-04-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-10 08:16:59" itemprop="dateModified" datetime="2020-04-10T08:16:59+08:00">2020-04-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>链接：<a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=950" target="_blank" rel="noopener">http://usaco.org/index.php?page=viewproblem2&amp;cpid=950</a></p>
-<h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>有一张 $n\times n$ 的网格，每个位置有个高度，你需要统计所有满足下面条件的连通块（valley）大小之和：周围有相邻边的所有格子必须都比内部所有格子高，并且如果删去连通块不会破坏网格的连通性，允许斜线连通（$1\leq n\leq 750$）。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/04/18/USACO%202019%20Open%20Platinum%20T3%20Valleys/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -350,10 +207,9 @@
       <meta itemprop="name" content="无忧公主的笔记">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/16/BZOJ%202957%20%E6%A5%BC%E6%88%BF%E9%87%8D%E5%BB%BA/" class="post-title-link" itemprop="url">BZOJ 2957 楼房重建</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          BZOJ 2957 楼房重建
+        </h1>
 
         <div class="post-meta">
 			
@@ -393,7 +249,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>题目来源：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2957" target="_blank" rel="noopener">https://www.lydsy.com/JudgeOnline/problem.php?id=2957</a></p>
+        <p>题目来源：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2957" target="_blank" rel="noopener">https://www.lydsy.com/JudgeOnline/problem.php?id=2957</a></p>
 <h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>我们可以稍微转化一下问题，过 $(0,0)$ 和 $(i,Hi)$ 的直线斜率必须大于所有前面的斜率时，才可以看见第 $i$ 条线段。</p>
 <p>于是相当于求有多少个数大于前面所有的数，这里用线段树维护区间的答案和斜率 max 值。</p>
 <p>pushup 时 mx 不难，ans 更新为 ls 的 ans 加上 rs 拼接在 ls 后的答案，因为 <strong>ls 的 max 会对 rs 产生影响</strong>。</p>
@@ -406,677 +262,54 @@
 <p>求前缀/区间内在单调栈中的元素个数，带修改。其实也差不多，贴个代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">    t=<span class="number">0</span>; <span class="keyword">char</span> ch=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123; (t*=<span class="number">10</span>)+=ch-<span class="string">'0'</span>; ch=getchar(); &#125; <span class="keyword">while</span> (<span class="string">'0'</span>&lt;=ch&amp;&amp;ch&lt;=<span class="string">'9'</span>); t*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=(<span class="number">1e9</span>)+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=(<span class="number">1e6</span>)+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,q,a[maxn];</span><br><span class="line"><span class="keyword">int</span> mx[maxn*<span class="number">4</span>],tr[maxn*<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root,<span class="keyword">int</span> delta)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l==r) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mx[root]&gt;delta) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (delta&lt;mx[root*<span class="number">2</span>]) <span class="keyword">return</span> tr[root]+<span class="built_in">find</span>(l,mid,root*<span class="number">2</span>,delta);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">find</span>(mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,delta);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l==r) &#123;</span><br><span class="line">        mx[root]=a[l];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">    build(l,mid,root*<span class="number">2</span>);</span><br><span class="line">    build(mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">    mx[root]=<span class="built_in">max</span>(mx[root*<span class="number">2</span>],mx[root*<span class="number">2</span>+<span class="number">1</span>]);</span><br><span class="line">    tr[root]=<span class="built_in">find</span>(mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,mx[root*<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l==r) &#123;</span><br><span class="line">        mx[root]=a[l]; <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (x&lt;=mid) add(x,l,mid,root*<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">else</span> add(x,mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">    mx[root]=<span class="built_in">max</span>(mx[root*<span class="number">2</span>],mx[root*<span class="number">2</span>+<span class="number">1</span>]);</span><br><span class="line">    tr[root]=<span class="built_in">find</span>(mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,mx[root*<span class="number">2</span>]);	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root,<span class="keyword">int</span> &amp;delta)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L&gt;R) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (L&lt;=l&amp;&amp;r&lt;=R) &#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="built_in">find</span>(l,r,root,delta);</span><br><span class="line">        delta=<span class="built_in">max</span>(delta,mx[root]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>,res;</span><br><span class="line">    <span class="keyword">if</span> (R&lt;=mid) <span class="keyword">return</span> query(L,R,l,mid,root*<span class="number">2</span>,delta);</span><br><span class="line">    <span class="keyword">if</span> (mid&lt;L) <span class="keyword">return</span> query(L,R,mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,delta);</span><br><span class="line">    res=query(L,R,l,mid,root*<span class="number">2</span>,delta);</span><br><span class="line">    res+=query(L,R,mid+<span class="number">1</span>,r,root*<span class="number">2</span>+<span class="number">1</span>,delta);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n); <span class="built_in">read</span>(q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">read</span>(a[i]),a[i]=INF-a[i]+<span class="number">1</span>;</span><br><span class="line">    reverse(a+<span class="number">1</span>,a+n+<span class="number">1</span>);</span><br><span class="line">    build(<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> op,x,y;</span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="built_in">read</span>(op); <span class="built_in">read</span>(x); x=n-x+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (op==<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">read</span>(a[x]);</span><br><span class="line">            a[x]=INF-a[x]+<span class="number">1</span>;</span><br><span class="line">            add(x,<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            y=<span class="number">0</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,query(<span class="number">1</span>,x,<span class="number">1</span>,n,<span class="number">1</span>,y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/12/USACO%202019%20Jan%20Platinum%20T1%20Redistricting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/12/USACO%202019%20Jan%20Platinum%20T1%20Redistricting/" class="post-title-link" itemprop="url">USACO 2019 Jan Platinum T1 Redistricting</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-12T00:00:00+08:00">2019-02-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-11 09:08:21" itemprop="dateModified" datetime="2020-04-11T09:08:21+08:00">2020-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>日期：2019-02-12</p>
-<p>题目来源：<a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=900&amp;lang=en" target="_blank" rel="noopener">http://usaco.org/index.php?page=viewproblem2&amp;cpid=900&amp;lang=en</a></p>
-<p>链接：<a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=900&amp;lang=en" target="_blank" rel="noopener">http://usaco.org/index.php?page=viewproblem2&amp;cpid=900&amp;lang=en</a></p>
-<h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><p>将 HG 序列（$1\leq n\leq 3\cdot 10^5$）划分成长度不超过 $k$ 的区间，如果至少一半是 ‘G’ 则贡献为 1，求最小贡献和。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/12/USACO%202019%20Jan%20Platinum%20T1%20Redistricting/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>WYGZ
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://wygz.github.io/2019/02/16/BZOJ%202957%20%E6%A5%BC%E6%88%BF%E9%87%8D%E5%BB%BA/" title="BZOJ 2957 楼房重建">http://wygz.github.io/2019/02/16/BZOJ 2957 楼房重建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag"># 线段树</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/" class="post-title-link" itemprop="url">AtCoder Yahoo Programming Contest 2019 - D Ears</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:06" itemprop="dateModified" datetime="2020-04-05T13:04:06+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_d</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20D%20Ears/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/" class="post-title-link" itemprop="url">AtCoder Yahoo Programming Contest 2019 - E Odd Subrectangles</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:18" itemprop="dateModified" datetime="2020-04-05T13:04:18+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_e" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_e</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20E%20Odd%20Subrectangles/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/12/USACO%202019%20Jan%20Platinum%20T1%20Redistricting/" rel="prev" title="USACO 2019 Jan Platinum T1 Redistricting">
+      <i class="fa fa-chevron-left"></i> USACO 2019 Jan Platinum T1 Redistricting
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/18/USACO%202019%20Open%20Platinum%20T3%20Valleys/" rel="next" title="USACO 2019 Open Platinum T3 Valleys">
+      USACO 2019 Open Platinum T3 Valleys <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20F%20Pass/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20F%20Pass/" class="post-title-link" itemprop="url">AtCoder Yahoo Programming Contest 2019 - F Pass</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:04:28" itemprop="dateModified" datetime="2020-04-05T13:04:28+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_f" target="_blank" rel="noopener">https://atcoder.jp/contests/yahoo-procon2019-qual/tasks/yahoo_procon2019_qual_f</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/AtCoder%20Yahoo%20Programming%20Contest%202019%20-%20F%20Pass/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/02/10/WC%202019%20-%20I%20%E5%90%9B%E7%9A%84%E5%95%86%E5%BA%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/10/WC%202019%20-%20I%20%E5%90%9B%E7%9A%84%E5%95%86%E5%BA%97/" class="post-title-link" itemprop="url">WC 2019 - I 君的商店 85pts</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 13:06:11" itemprop="dateModified" datetime="2020-04-05T13:06:11+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WC/" itemprop="url" rel="index"><span itemprop="name">WC</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>题目来源：<a href="https://loj.ac/problem/2985" target="_blank" rel="noopener">https://loj.ac/problem/2985</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/10/WC%202019%20-%20I%20%E5%90%9B%E7%9A%84%E5%95%86%E5%BA%97/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/01/14/1029%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88%E7%83%A7%E8%84%91%E6%95%B0%E8%AE%BA%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/14/1029%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88%E7%83%A7%E8%84%91%E6%95%B0%E8%AE%BA%EF%BC%89/" class="post-title-link" itemprop="url">1029 每日一题（烧脑数论）</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-01-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">2019-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-05 12:44:41" itemprop="dateModified" datetime="2020-04-05T12:44:41+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h6 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h6><p>证明：对于 $\forall n \in Z_+$，满足所有的 $n \choose m$ 中 mod 3 = 1 的个数大于 mod 3 = 2 的个数</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/01/14/1029%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88%E7%83%A7%E8%84%91%E6%95%B0%E8%AE%BA%EF%BC%89/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2019/01/05/%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/05/%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">数论函数笔记</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-01-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-05T00:00:00+08:00">2019-01-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-08 15:24:57" itemprop="dateModified" datetime="2020-04-08T15:24:57+08:00">2020-04-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/01/05/%E6%95%B0%E8%AE%BA%E5%87%BD%E6%95%B0%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wygz.github.io/2018/08/30/Miller%20Rabin%20%E4%B8%8E%20Pollard%20Rho/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WYGZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无忧公主的笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/30/Miller%20Rabin%20%E4%B8%8E%20Pollard%20Rho/" class="post-title-link" itemprop="url">Miller Rabin 与 Pollard Rho——大整数分解质因数</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-08-30 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-30T00:00:00+08:00">2018-08-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-11 11:47:03" itemprop="dateModified" datetime="2020-04-11T11:47:03+08:00">2020-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>分解质因数本身并不困难，直接枚举的 $O(\sqrt{n})$ 做法在大部分情况中也都适用，今天我想介绍一种更高效但 “ 玄学 ” 的做法——Pollard Rho，这时 Miller Rabin 也会派上用场呢。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/30/Miller%20Rabin%20%E4%B8%8E%20Pollard%20Rho/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
@@ -1128,6 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
