@@ -28,7 +28,7 @@
 <meta property="og:description" content="题目大意对于一个值域为 $[1,K]$ 的正整数序列，定义它是有魅力的，当且仅当其中存在一个子区间恰好是 $[1,K]$ 的排列。 现给定一个长度为 $m$ 的正整数序列 $\{a_m\}$，在所有长度为 $n$ 且有魅力的序列中，统计 $\{a_m\}$ 作为子区间出现的总次数，顺序也要求一致。答案对 $10^9+7$ 取模。 范围：$1\le m\le n\le 25000，1\le K\le">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-12T09:07:01.455Z">
+<meta property="article:modified_time" content="2020-06-12T09:10:51.406Z">
 <meta property="article:author" content="WYGZ">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="组合计数">
@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-06-12 00:00:00 / Modified: 17:07:01" itemprop="dateCreated datePublished" datetime="2020-06-12T00:00:00+08:00">2020-06-12</time>
+              <time title="Created: 2020-06-12 00:00:00 / Modified: 17:10:51" itemprop="dateCreated datePublished" datetime="2020-06-12T00:00:00+08:00">2020-06-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,7 @@
 <a id="more"></a>
 <h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>首先，如果不考虑一个序列是否有魅力，那么 $\{a_m\}$ 的总出现次数为 $(n-m+1)\cdot K^{n-m}$，这是因为子区间共有 $n-m+1$ 个位置可放，剩余 $n-m$ 个数各有 $K$ 种取值。</p>
 <p>所以我们只要计算<strong>没有魅力的序列里，$\{a_m\}$ 的总出现次数</strong>，最后减一下即可。有魅力的序列要求存在一个子区间是 $[1,K]$ 的排列，而没有魅力的序列要求任何连续 $K$ 个数都有相同的，即连续互不相同的数 $&lt;K$ 个。这样容斥会更划算一些。</p>
-<p>① 如果 $\{a_m\}$ 中存在两数相同，那么往左右两边延伸的时候，起始的 <strong>最长连续互不相同长度</strong> 已经确定了，记这个值为 $x$（也就是说，如果向左延伸，$\exist 1\le i\le x，a_{x+1}=a_i$，而且 $a_1$ 到 $a_x$ 互不相同）</p>
+<p>① 如果 $\{a_m\}$ 中存在两数相同，那么往左右两边延伸的时候，起始的 <strong>最长连续互不相同长度</strong> 已经确定了，记这个值为 $x$（也就是说，如果向左延伸，$\exists 1\le i\le x，a_{x+1}=a_i$，而且 $a_1$ 到 $a_x$ 互不相同）</p>
 <p>假设 $dp[i][j]$ 表示延伸长度 $i$，最长连续互不相同长度为 $j$（含 $i$，所以 $j$ 与 $i$ 的大小关系没有限制，但 $j&lt;K$）的方案数。只需考虑延伸出来的部分，而在 $\{a_m\}$ 内的 $x$ 个数互不相同，具体值已经不重要了。</p>
 <p>考虑下一个数填什么，转移：$dp[i][j]\cdot (K-j) \rightarrow dp[i+1][j+1]，dp[i][j]\rightarrow dp[i+1][j’]（j’\le j）$</p>
 <p>后者可以用后缀和优化，时间复杂度 $\mathcal O(nK)$</p>
