@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-09-19 00:00:00 / Modified: 14:36:10" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+              <time title="Created: 2020-09-19 00:00:00 / Modified: 14:54:15" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,12 +242,12 @@
 <h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><p>有 $n$ 个人排成一圈，顺时针依次编号为 $0$ 至 $n-1$。每个人计算自己顺时针方向的后 $k-1$ 个人中比自己高的人数 $r_i$，现在已知所有 $r_i$ 但不知道相对身高。$q$ 次在线询问 $(x,y)$，求第 $x$ 个人和第 $y$ 个人谁高。要么 $x$ 一定高（回答 1），要么 $y$ 一定高（回答 -1），要么都有可能（回答 0）。</p>
 <p>保证存在满足所有 $r_i$ 的身高情况。</p>
 <p>范围：$2\le k\le n\le 2\cdot 10^5，1\le q\le 2\cdot 10^5，0\le r_i\le k-1，0\le x&lt;y\le n-1$</p>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>身高可以用一个 $0$ 到 $n-1$的排列来描述，并假设下标是$\mod n$ 的。一个环上的区间可以被拆成序列上的两个区间。</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>身高可以用一个 $0$ 到 $n-1$ 的排列来描述，并假设下标是 $\mod n$ 的。一个环上的区间可以被拆成序列上的两个区间。</p>
 <p>部分分里有一个是保证答案为 $1$ 或 $-1$，提示我们应该先找出一个合法的排列。事实上，如果只依靠找出的这个排列回答询问而不判 $0$ 的话，也能通过 $2\cdot k&gt;n$ 的子任务。</p>
 <h6 id="构造排列"><a href="#构造排列" class="headerlink" title="构造排列"></a>构造排列</h6><p>在所有 $r_i$ 中，$r_i=0$ 是最特殊的，因为最高的人一定在其中。因此我们考虑从 $n-1$ 到 $0$ 填这个排列，已经填过的视为删除（位置不动，人移走）。每一步相当于删去一个可能的全局最高者。</p>
-<p>Claim：找 $i$ 满足 $r_i=0$，且 $\forall i-k<j<i$ 有 $r_j>0$，然后把当前要填的身高填在 $i$ 这个位置上。</p>
-<p>这样的 $i$ 一定存在，因为存在一个合法排列，其中的最高者就满足。再说明 $\forall i-k<j<i$，有 $h_i>h_j$：否则，对于其中 $h_i<h_j$ 的 $j$，因为 $r_j>0$，一定可以在 $(j,i)$ 中找到 $k$ 使得 $h_j&lt;h_k$ 也就是 $h_i&lt;h_k$，类似于无穷递降法矛盾。</p>
-<p>因此，对 $\forall i-k<j<i+k（j\neq i）$ 有 $h_i>h_j$。把 $i$ 删除，相当于把 $(i-k,i)$ 中的所有 $r$ 减一。可以看到这样操作下来，每一步的 $r$ 都是基于这些剩余者真实的 $r$ 值。并且对于所有的 $|i-j|&lt;k$，先被删除者更高，这是确定的。从该排列所反映出相邻 $k$ 个人的相对身高，就能反过来确定 $r$，进而说明与原问题等价。任意时刻所有 $0\le r_i\le k-1$ 均成立。</p>
+<p>Claim：找 <script type="math/tex">i</script> 满足 <script type="math/tex">r_i=0</script>，且 <script type="math/tex">\forall i-k<j<i</script>， 有 <script type="math/tex">r_j>0</script>，然后把当前要填的身高填在 <script type="math/tex">i</script> 这个位置上。</p>
+<p>这样的<script type="math/tex">i</script> 一定存在，因为存在一个合法排列，其中的最高者就满足。再说明 <script type="math/tex">\forall i-k<j<i</script>，有 <script type="math/tex">h_i>h_j</script>：否则，对于其中 <script type="math/tex">h_i<h_j</script> 的 <script type="math/tex">j</script>，因为 <script type="math/tex">r_j>0</script>，一定可以在 <script type="math/tex">(j,i)</script> 中找到 <script type="math/tex">k</script> 使得 <script type="math/tex">h_j<h_k</script> 也就是 <script type="math/tex">h_i<h_k</script>，类似于无穷递降法矛盾。</p>
+<p>因此，对 <script type="math/tex">\forall i-k<j<i+k（j\neq i）</script> 有 <script type="math/tex">h_i>h_j</script>。把 <script type="math/tex">i</script> 删除，相当于把 <script type="math/tex">(i-k,i)</script> 中的所有 <script type="math/tex">r</script> 减一。可以看到这样操作下来，每一步的 <script type="math/tex">r</script> 都是基于这些剩余者真实的 <script type="math/tex">r</script> 值。并且对于所有的 <script type="math/tex">|i-j|<k</script>，先被删除者更高，这是确定的。从该排列所反映出相邻 <script type="math/tex">k</script> 个人的相对身高，就能反过来确定 <script type="math/tex">r</script>，进而说明与原问题等价。任意时刻所有 <script type="math/tex">0\le r_i\le k-1</script> 均成立。</p>
 <p>具体实现上，我们可以用线段树来维护 $r_i$，删除时就做区间减法。如何找 $i$ 呢？先用全局最小值随便找一个 $r_i=0$ 的位置，如果前面 $k-1$ 个都为正，则直接取这个 $i$；否则找 $(i-k,i)$ 中的 $r_j=0$，继续考虑 $j$ 是否满足。容易发现 $h_i&lt;h_j&lt;…$，这个过程不可能形成环，而且 $i$ 要成为最高者必须等 $j$ 删掉才有可能。</p>
 <p>所以把 $i$ 依次放进栈里，每次找栈顶元素判断，如果满足就弹出，如果栈为空就找全局 $r_i=0$ 的位置继续做。由于每个元素至多被放进去一次，栈的复杂度均摊线性。</p>
 <h6 id="回答询问"><a href="#回答询问" class="headerlink" title="回答询问"></a>回答询问</h6><p>现在，我们已知所有 $|i-j|&lt;k$ 的 $h_i$、$h_j$ 大小关系，需要对任意 $x,y$ 判断 $h_x$、$h_y$ 大小关系。如果看成 DAG，相当于在询问从 $x$ 到 $y$ 有没有路径。</p>
