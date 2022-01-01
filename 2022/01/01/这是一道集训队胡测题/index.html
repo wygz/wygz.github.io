@@ -28,7 +28,7 @@
 <meta property="og:description" content="12345678title: 这是一道集训队互测题date: 2021-10-11tags:    - bitset    - 并查集categories:    - 互测mathjax: true 题意给出一个 $n\times n$ 的 $01$ 矩阵 $c$，求有多少长度为 $n$ 的 $01$ 序列 $a,b$，满足 $c_{i,j}&#x3D;a_i$ 或 $c_{i,j}&#x3D;b_j$，对 $998">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-01T14:21:03.640Z">
-<meta property="article:modified_time" content="2022-01-01T14:19:44.000Z">
+<meta property="article:modified_time" content="2022-01-01T14:23:45.107Z">
 <meta property="article:author" content="WYGZ">
 <meta name="twitter:card" content="summary">
 
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-01-01 22:21:03 / Modified: 22:19:44" itemprop="dateCreated datePublished" datetime="2022-01-01T22:21:03+08:00">2022-01-01</time>
+              <time title="Created: 2022-01-01 22:21:03 / Modified: 22:23:45" itemprop="dateCreated datePublished" datetime="2022-01-01T22:21:03+08:00">2022-01-01</time>
             </span>
 
           
@@ -235,6 +235,7 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: 这是一道集训队互测题</span><br><span class="line">date: 2021-10-11</span><br><span class="line">tags:</span><br><span class="line">    - bitset</span><br><span class="line">    - 并查集</span><br><span class="line">categories:</span><br><span class="line">    - 互测</span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给出一个 $n\times n$ 的 $01$ 矩阵 $c$，求有多少长度为 $n$ 的 $01$ 序列 $a,b$，满足 $c_{i,j}=a_i$ 或 $c_{i,j}=b_j$，对 $998244353$ 取模。</p>
+<a id="more"></a>
 <h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>首先有个暴力，枚举 $a$，然后看 $b$ 的限制，如果没冲突，那么就是数 $b$ 没限制的位置个数，然后 $2$ 的幂。</p>
 <p>考虑行 $i$ 和行 $j$ 什么时候可以分别填 $1$ 和 $0$，必须是行 $i$ 和行 $j$ 呈包含关系，即如果不是包含关系，必须 $a$ 相等。这一步可以并查集，直接做就是 $\mathcal O(n^3/w)$ 的，<del>亲测能过</del>。如果要优化，考虑增量，即每次加入一行，那么根据下面提到的 and、or 的单调包含关系，可以二分：找到最长的前缀使得是该行的子集，找到最长的后缀使得是该行的超集。复杂度 $\mathcal O(n^2\log /w)$，<del>但我懒得写了</del>。</p>
 <p>并查集完了以后，考虑每个集合的 and 和 or，你发现可以排个序，使得前面 or 是后面 and 的子集。具体排序方法：按照 $($ or 大小，and 大小 $)$ 双关键字排序（我试了其他的都不太行）。当然采用增量法不需要再排序了。</p>
