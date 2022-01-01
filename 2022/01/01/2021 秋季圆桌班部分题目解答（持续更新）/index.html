@@ -20,16 +20,18 @@
     var CONFIG = {"hostname":"wygz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="123456789title: 2021 秋季圆桌班部分题目解答（持续更新）date: 2022-01-01password: ab050303tags:    - DP    - SAcategories:    - 笔记mathjax: true LOJ2521 领导集团问题 \begin{gather} dp[u][i]&#x3D;考虑u子树内所有\ge i的最多选几个\\ dp[u][i]&#x3D;\sum">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2021 秋季圆桌班部分题目解答（持续更新）">
 <meta property="og:url" content="http://wygz.github.io/2022/01/01/2021%20%E7%A7%8B%E5%AD%A3%E5%9C%86%E6%A1%8C%E7%8F%AD%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E8%A7%A3%E7%AD%94%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/index.html">
 <meta property="og:site_name" content="无忧公主的笔记">
-<meta property="og:description" content="123456789title: 2021 秋季圆桌班部分题目解答（持续更新）date: 2022-01-01password: ab050303tags:    - DP    - SAcategories:    - 笔记mathjax: true LOJ2521 领导集团问题 \begin{gather} dp[u][i]&#x3D;考虑u子树内所有\ge i的最多选几个\\ dp[u][i]&#x3D;\sum">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-01-01T14:21:03.650Z">
-<meta property="article:modified_time" content="2022-01-01T14:26:00.518Z">
+<meta property="article:published_time" content="2021-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T14:28:59.558Z">
 <meta property="article:author" content="WYGZ">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="SA">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://wygz.github.io/2022/01/01/2021%20%E7%A7%8B%E5%AD%A3%E5%9C%86%E6%A1%8C%E7%8F%AD%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E8%A7%A3%E7%AD%94%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
@@ -219,7 +221,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-01-01 22:21:03 / Modified: 22:26:00" itemprop="dateCreated datePublished" datetime="2022-01-01T22:21:03+08:00">2022-01-01</time>
+              <time title="Created: 2022-01-01 00:00:00 / Modified: 22:28:59" itemprop="dateCreated datePublished" datetime="2022-01-01T00:00:00+08:00">2022-01-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
             </span>
 
           
@@ -233,23 +244,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: 2021 秋季圆桌班部分题目解答（持续更新）</span><br><span class="line">date: 2022-01-01</span><br><span class="line">password: ab050303</span><br><span class="line">tags:</span><br><span class="line">    - DP</span><br><span class="line">    - SA</span><br><span class="line">categories:</span><br><span class="line">    - 笔记</span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure>
-<h6 id="LOJ2521-领导集团问题"><a href="#LOJ2521-领导集团问题" class="headerlink" title="LOJ2521 领导集团问题"></a>LOJ2521 领导集团问题</h6><script type="math/tex; mode=display">
-\begin{gather}
-dp[u][i]=考虑u子树内所有\ge i的最多选几个\\
-dp[u][i]=\sum dp[v][i]\\
-dp[u][i]\leftarrow \sum dp[v][w[u]]+1(i\le w[u])\\
-\end{gather}</script><p>线段树合并。pushdown 时如果没有子节点，则相当于区间推平。</p>
-<h6 id="CF573E-Bear-and-Bowling"><a href="#CF573E-Bear-and-Bowling" class="headerlink" title="CF573E Bear and Bowling"></a>CF573E Bear and Bowling</h6><script type="math/tex; mode=display">
-f[i][j]=\max (f[i-1][j],f[i-1][j-1]+j\cdot a_i)\\</script><p>枚举$i$，考虑对于$j$从哪里转移过来$(1\le j\le i)$</p>
-<p>结论是存在一个分界点，左边的取前一种转移，右边的取后一种转移。</p>
-<p>用平衡树维护。</p>
-<p>官方题解是贪心加入，分块维护。</p>
-<h6 id="CF-204-E"><a href="#CF-204-E" class="headerlink" title="CF 204 E"></a>CF 204 E</h6><p>把所有串拼一起，用特殊字符隔开，建立后缀数组。</p>
-<p>枚举串 $a[l…r]$ 的左端点 $l$。那么在同一个 $a$ 里面可以双指针扫 $r$，我们只要支持快速查询 $a[l…r]$ 是否符合条件即可。</p>
-<p>相当于是 $rk[l]$ 在 SA 上向左右两边扩展出一段区间 $[x,y]$，该区间内与 $l$ 作 LCP 均 $\ge r-l+1$，具体的 $[x,y]$ 直接二分+ST表就行了。注意到 $a[l…r]$ <strong>不在</strong>串 $a’$ 中出现，等价于是 $a’$ 所有位置（后缀起始位置）对应的 $rk$，均不在该区间内。将 $a’$ 所有位置对应的 $rk$ 找到后排序，相邻两个之间框出一段区间 $[L,R]$，那么对于现在的 $[x,y]$ 来说，相当于查询有多少个 $L\le x\le y\le R$ 的区间 $[L,R]$。</p>
-<p>这是二维数点，直接建二维数据结构的话，空间和时间都炸了。可以考虑将所有 $[L,R]$ 按 $R$ 从大到小排序，建立主席树。那么一开始建立和后面查询各 $1\log$，总时间复杂度仍然是 $1\log$ 的。</p>
-
+        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="091a32e00a3e6ce17faa040da5c5d5b9687eaf65febd49e99b423e87795b7f85">4fa62cfc2c930c9fef43b70d7e8ebf9e6daeb61f72c9b6b24bb93eaa31ac86dd814403806ffda2793bbde395d3ac81ad13b56a356778e22cfaccec1e09e94c2edde8576eba7725867d58e90c1774bf157e231539ba6a1350e3a6236de97cc32c78cae3f1d31f676b54fcf8e3326bf3f47ec01013a62b1dfba56c0b5648617f4ce92b644ee56b4addf7ced68726e3e7de5eb130981ad8b288f06567ce96577ffbb370f2704a695f43c52c598c6f367dec67197ecb77b0cee003c30d7a68c21bd63b5261ceadd3f166ad30e3314e9dbb711352145f3eb18a9a970a55c73d636a4caae0685b0a5ce2c4528f834907cc714868e715802785b7ef9945c1127ebcc802899a0be33ce0e0a083f54502374c7134a5b0ff9c191f48d01f4c47220815c80797f90169deafb780395c6ae647889b8e6840528ae1306c10585eea2108b9f38c3b782d067f128e8be7b8c8d29516cdf865b73bf5d13a80ac9c7ed6c4bb2808d296ec79e9a427b0d3d627cbdd048f244da77a16a0699a39aa29343d220639f158e0d75c308f2202a125e8177acb8496c622995b40731b570dfb4aa4d5ff50def874b8b6ec2cab59087f204e0a3b68fbeae9e5b8172fc8aec7a8a2068aeebeac993e91fb85f6be63ee4cb506d30bf7b5c0eb4570f3612138532d59763c4df6e37302978c7d86368a03769ce88c9c3851211dc0d9a8026a337563856b2cfde9bb707e4fded4f4d7f23a065069a1a27e7718f4fee67482c33ef1c105ee43e91c20e9656b5390dbcaa0ef0d956fcdb72196d90f7895712b8b08360bc9d471091202d3f815fbeb4deb9bfa2b619556dcadffcad104489b17f4c0f6b482c3af4d3cd14fce1b486ea9b8d5606c7f633e0eeeada3b701c9e1cabafff64270b4f5dac1e4334716fb21c09f3ba8d173cd5f562a9fc33fc216c2b346b57ec5b15772f88d29a69d4f47f20bf5a13a53c2748ae0ed6db735848d31be5969332a0ea7c5bd141672ddf0ca1fc4651ee1e9e9e4f35baf2d81f9ac8d755e3d69b9df87f57c2f35ede44068d56c8f17e19da7bea78cb604528f5a6b30543422f39a86e1deab101d01ed73a3e26b8d2a4464d676fedf0705163445b6f402308269bc4e1ee5391217f5927d4289daa78082db0c9edcf84bb75eddc46c83f7911e5761957e11a192a9e73bf809b98fa191a98b24cf507cd812165dfa2c59d1b33c84e27f492c31feaf01235dea5d1fb4e7de49764b97509205b79aa3375be93e16e1b31ccfcc36f6d11943aeb4bcf79ae44c2e942fee572fbea6dc26e5993cd55c049ac753b7cf1bc7759854fa6648e32b11bf200db41538e68a797d36194bb904cf8199e4d971a8d0a05d2d04e43337f7aec99639c3f3bbbd403cf2703fec6a56796c056b1995784df525edaa59dc587875ed0fca7a114b5f56b088695eb5a0518e62ae97d6c68ced204cc4177e1076292700ace9f7fbfef27dc5a620c4c9f719447968d7b0971865545e99d1f7f3e9c591afe7f595a3e45d1835f49c8ef6fc25cb57a2a0fca3bc7a3c180c5ef3b45c6600e970b5a3b2c1fd66f09c35256b1fc7f023caa00c2981a80bdff79833a708a31fb06b324769533d508258371a5596a50b89cbea909b22019ba96624a3b32189700a87b9902d6244863396cf673e20a8a959f4d6ae3ba1f5504fbbc04251f693caa06974799a893da1031608c683ede167a0d88054f886641b930289fd8fb699d72a2c6f390638a5c1c395668da7f27c19f03f6c505b06e99e48fef42f8e84490f578a3ff3163b2f5bc04c0658de25d97cdb1ecb7ffc676769804f28f2aa9e658901c5ceed6475837f6d4394b5ad435ca89ebc28053e07c623ba15cfe0febc8cc4cdfa07cbddca477fe96d7ed10da1a24b80cc02f7c192e132557bdf453b0224afa0699d0c375ed7c012eca9debc6f38d383d1d372167893b487c7b5e69e15d579bcbfbb69a9c429d3f85beaec868a6c215a57980af27dce87e0cfc2a111c542f367b7c5fd8b02227ea7fdd046bb950b584568842e0261a580268b0ebc176e9670f0793921915c2df05c0358c2f6add9d6041f1bc1c88a32e84e41e9dd9e5307a894903fbfba80d153a31c1b81c0066dff03839d8e78eda58fa7829fb2c24f70db20243d622ba76c14040e259eaba946c0f246a9e4c858dddd5574822ca777aa079b9d533bc4fb27ba10c01d533c929dc4ba1a9f9d0011231698a5e27413e65c66ec37b5702f2d83a1965e526e36f5bcad475834357aa2753e6c776d82fe29b5419244aaa7bb966efea8bc7f69553203a807c36eb20b0f2f43aa9ebbcd495fde5ef5ceeb8d8b77a45d7d5546b3105153dbc134d99dccfcbd5aff138a160652174db1de7787350fa9ec4aaf24fde711cde9ef4dfd451dfa0f1b059e7d7002bbd21176fdbedb3d0d05c3ef1001761376e4c46fec065655ad09116916b03ccb15f3b45da410afe869029faad415b51925a0ca902eebc2c9c667f688e7a5947fb629d7aebd00d4cb960aed374c21cebd3a99492f14b55f854696db4c09ae2085793b1684cb944299b326674ee0219636c25dd3317a901586f8926e40f06939445df837515de34ac74f838909f5a10b83cd3b58af654c57c49f744b2bf97162566de428082184dd38ef95993f0039b0b2c3e8a2d6308d3eefba4760e2fb4cd48b634562dfb53f64b3eab3c7b2fdf6d50490297e1eb01cc3e02ca58a61da55f5f177f48a5ed51c47f78d7b5da441dff4c6c4a7230f6a933f6eec2aa1ce1500c9389adc971a83592547a4f9042b2f405ecf4e0cfefecd4f7080edd0082795f01b3a4bc56861b796312b8dae1aaf9408d062dada0c64954e33c7e76c35b6053faaf5848bc801f55051082198f0df04f56eb1940cbc87a8931254d9599dadd11b542626105d9c6cd8387fd68dc1d51710b620906ec0c01018a1601be41987bd5c9fb66da4eacfed1939830304ff103f4f1f7b964f0c454599844fb4d07cf0a2ebc06629339d01f6946467fbb2b0bb</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -274,6 +277,10 @@ f[i][j]=\max (f[i-1][j],f[i-1][j-1]+j\cdot a_i)\\</script><p>枚举$i$，考虑�
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/SA/" rel="tag"># SA</a>
+          </div>
 
         
 
@@ -281,13 +288,10 @@ f[i][j]=\max (f[i-1][j],f[i-1][j-1]+j\cdot a_i)\\</script><p>枚举$i$，考虑�
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/01/%E8%BF%99%E6%98%AF%E4%B8%80%E9%81%93%E9%9B%86%E8%AE%AD%E9%98%9F%E8%83%A1%E6%B5%8B%E9%A2%98/" rel="prev" title="这是一道集训队胡测题">
-      <i class="fa fa-chevron-left"></i> 这是一道集训队胡测题
+    <a href="/2022/01/01/USACO%202021%20Dec%20Plat%20C%20HILO/" rel="prev" title="USACO 2021 Dec Plat C HILO">
+      <i class="fa fa-chevron-left"></i> USACO 2021 Dec Plat C HILO
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/01/01/USACO%202021%20Dec%20Plat%20C%20HILO/" rel="next" title="USACO 2021 Dec Plat C HILO">
-      USACO 2021 Dec Plat C HILO <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -346,7 +350,6 @@ f[i][j]=\max (f[i-1][j],f[i-1][j-1]+j\cdot a_i)\\</script><p>枚举$i$，考虑�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#LOJ2521-领导集团问题"><span class="nav-number">1.</span> <span class="nav-text">LOJ2521 领导集团问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CF573E-Bear-and-Bowling"><span class="nav-number">2.</span> <span class="nav-text">CF573E Bear and Bowling</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CF-204-E"><span class="nav-number">3.</span> <span class="nav-text">CF 204 E</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,20 +365,20 @@ f[i][j]=\max (f[i-1][j],f[i-1][j-1]+j\cdot a_i)\\</script><p>枚举$i$，考虑�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -525,6 +528,59 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
